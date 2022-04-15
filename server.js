@@ -4,7 +4,7 @@ const app = require("./app");
 
 const port = 4444;
 
-mongoose.connect("mongodb://localhost:27017/users").then(() => {
+mongoose.connect("mongodb://localhost:27017/user-auth").then(() => {
   console.log(`conneccted to DATABASE`);
 });
 
