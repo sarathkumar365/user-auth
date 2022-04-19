@@ -1,4 +1,11 @@
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+
+// Config dot env
+dotenv.config({ path: "./.env" });
+
+// console.log(process.env.AUTHOR);
+// console.log(process.env.NODE_ENV);
 
 const app = require("./app");
 
