@@ -10,6 +10,8 @@ const sendErrorDev = (err, req, res, next) => {
 };
 
 module.exports = (err, req, res, next) => {
+  // log error for development purpose
+  // console.log(err);
   // 1. CLASSIFY THE ERRROR AS DEVELOPMENT or PRODUCTION
 
   const env = "dev";

@@ -1,4 +1,5 @@
 const clone = require("nodemon/lib/utils/clone");
+const Logger = require("nodemon/lib/utils/log");
 const User = require("../models/userModel");
 const AppError = require("../utils/AppError");
 const catchAsync = require("../utils/catchAsync");
@@ -8,8 +9,11 @@ exports.home = (req, res, next) => {
 };
 
 exports.createUser = catchAsync(async (req, res, next) => {
-  // // 1. CREATE USER
-  const data = await User.create({ name: "akhil" });
+  // 1. GET DATA
+  console.log(req.body);
+
+  // 2. CREATE USER
+  const data = await User.create(req.body);
   if (data) {
     console.log(data);
     res.status(200).json({
@@ -31,24 +35,49 @@ exports.getAllUsers = catchAsync(async (req, res, next) => {
     });
 });
 
-exports.updateUser = catchAsync(async (req, res, next) => {
+exports.getUser = catchAsync(async (req, res, next) => {
   // 1. GET USER ID
+  const userId = req.body.id;
 
-  // 2. MODIFY USER
-  const data = await User.updateOne({ name: "a" }, { name: "thomson" });
+  if (!userId) return next(new AppError("please provide a user ID", 400));
+
+  // 2. GET USER'S DATA
+  const data = await User.findById(userId).clone();
 
   if (data)
     res.status(200).json({
       status: "success",
       data,
+      total: data.length,
+    });
+});
+
+exports.updateUser = catchAsync(async (req, res, next) => {
+  // 1. GET USER ID
+  const id = req.body.id;
+  if (!req.body.id) return next(new AppError("please provide a user ID", 400));
+  delete req.body.id;
+
+  // 2. MODIFY USER
+  const data = await User.updateOne({ _id: id }, req.body);
+  const updatedUser = await User.findById(id);
+  console.log(updatedUser);
+
+  if (data)
+    res.status(200).json({
+      status: "success",
+      data: updatedUser,
     });
 });
 
 exports.deleteUser = catchAsync(async (req, res, next) => {
   // 1. GET USER ID
+  const id = req.body.id;
+
+  if (!id) return next(new AppError("no user id provided!!!! 🙄", 400));
 
   // 2. DELETE USER
-  const data = await User.deleteOne({ name: "akhil" });
+  const data = await User.deleteOne({ _id: id });
   if (data)
     res.status(200).json({
       status: "success",
