@@ -3,6 +3,8 @@ const Logger = require("nodemon/lib/utils/log");
 const User = require("../models/userModel");
 const AppError = require("../utils/AppError");
 const catchAsync = require("../utils/catchAsync");
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
 
 exports.home = (req, res, next) => {
   res.send(`YOU HAVE REACHER AUTHORIZATION API 😁`);
@@ -10,12 +12,16 @@ exports.home = (req, res, next) => {
 
 exports.createUser = catchAsync(async (req, res, next) => {
   // 1. GET DATA
-  console.log(req.body);
+  console.log(req.body.password);
 
-  // 2. CREATE USER
+  // 2. encrypt password
+  const password = req.body.password.toString();
+  const encryptedPass = await bcrypt.hash(password, saltRounds);
+  req.body.password = encryptedPass;
+
+  // 3. CREATE USER
   const data = await User.create(req.body);
   if (data) {
-    console.log(data);
     res.status(200).json({
       status: "success",
       data,
