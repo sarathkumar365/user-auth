@@ -12,14 +12,18 @@ exports.home = (req, res, next) => {
 
 exports.createUser = catchAsync(async (req, res, next) => {
   // 1. GET DATA
-  console.log(req.body.password);
+  // console.log(req.body.password);
 
-  // 2. encrypt password
+  // 2. confirm passsword
+  if (req.body.password !== req.body.confirmPassword)
+    return next(new AppError("password's does not match 😶", 401));
+
+  // 3. encrypt password
   const password = req.body.password.toString();
   const encryptedPass = await bcrypt.hash(password, saltRounds);
   req.body.password = encryptedPass;
 
-  // 3. CREATE USER
+  // 4. CREATE USER
   const data = await User.create(req.body);
   if (data) {
     res.status(200).json({
@@ -61,7 +65,8 @@ exports.getUser = catchAsync(async (req, res, next) => {
 exports.updateUser = catchAsync(async (req, res, next) => {
   // 1. GET USER ID
   const id = req.body.id;
-  if (!req.body.id) return next(new AppError("please provide a user ID", 400));
+  if (!req.body.id)
+    return next(new AppError("please provide a vslid user ID", 400));
   delete req.body.id;
 
   // 2. MODIFY USER

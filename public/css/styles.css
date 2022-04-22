@@ -1,0 +1,290 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  height: 100vh;
+  background-repeat: no-repeat;
+
+  background-image: linear-gradient(
+    to left top,
+    #f48982,
+    #f48a82,
+    #f48b82,
+    #f38c82,
+    #f38d82,
+    #f69380,
+    #f9997f,
+    #fba07e,
+    #feae7d,
+    #ffbd7e,
+    #fecc82,
+    #fbdb89
+  );
+}
+
+.main {
+  height: 100%;
+  display: flex;
+}
+
+.left,
+.right {
+  width: 50%;
+  height: 100%;
+  /* background-color: red; */
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1,
+h2 {
+  line-height: 90px;
+}
+
+.welcome h2 {
+  margin: 0;
+
+  font-family: "Poppins";
+  font-weight: bold;
+  font-size: 95px;
+  color: #fff;
+}
+
+.welcome {
+  margin-top: -200px;
+}
+.auth h1 {
+  margin: 0;
+
+  font-family: "Poppins";
+  font-weight: bold;
+  font-size: 95px;
+  color: #fff;
+}
+
+.auth h1 > span {
+  margin-left: -215px;
+  letter-spacing: 42px;
+}
+
+.message p {
+  margin-left: -37px;
+
+  font-family: "Poppins";
+  font-weight: medium;
+  font-size: 21px;
+  color: #fff;
+}
+
+.message span {
+  font-family: "Dancing Script", cursive;
+  font-family: "Inspiration", cursive;
+
+  font-size: 55px;
+  font-weight: 1000px;
+}
+
+.right {
+  width: 50%;
+  height: 100%;
+  /* background-color: red; */
+
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: center;
+}
+
+.form {
+  height: 100%;
+  width: 500px;
+  /* background-color: rgb(195, 103, 103); */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 10px;
+}
+
+.names {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 7px;
+}
+.names > .first,
+.last {
+  color: white;
+  font-weight: medium;
+  font-size: 22px;
+  font-family: Poppins;
+}
+/* input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+input:focus {
+  border: 2.5px solid #72bdad;
+} */
+
+input {
+  border: none;
+}
+.names input[type="text"] {
+  width: 250px;
+  height: 45px;
+  border-radius: 5px;
+}
+
+.passwords {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 5px;
+}
+
+.first,
+.last,
+.password1,
+.password2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.passwords > .password1,
+.password2 {
+  color: white;
+  font-weight: medium;
+  font-size: 22px;
+  font-family: Poppins;
+}
+
+.passwords input[type="text"] {
+  width: 514px;
+  height: 45px;
+  border-radius: 5px;
+}
+
+.ag {
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+  /* justify-content: center; */
+}
+
+.ag > .age,
+.gender {
+  color: white;
+  font-weight: medium;
+  font-size: 22px;
+  font-family: Poppins;
+}
+
+.age {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+}
+
+.ag input[type="text"] {
+  width: 240px;
+  height: 45px;
+  border-radius: 5px;
+}
+select {
+  border: none;
+  background: white;
+}
+#gender {
+  font-family: poppins;
+  font-size: 18px;
+}
+select > option {
+  font-size: 18px;
+}
+.ag select {
+  width: 240px;
+  height: 45px;
+  border-radius: 5px;
+}
+
+input[type="text"] {
+  font-size: 25px;
+  font-weight: 300px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mobile,
+.email {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.info > .mobile,
+.email {
+  color: white;
+  font-weight: medium;
+  font-size: 22px;
+  font-family: Poppins;
+}
+
+.info input[type="text"] {
+  width: 514px;
+  height: 45px;
+  border-radius: 5px;
+}
+button {
+  margin-top: 20px;
+  width: 150px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.25);
+  color: #fff;
+  font-weight: 800px;
+  letter-spacing: 2px;
+  border: none;
+  border-radius: 5px;
+  font-size: 17px;
+
+  transition: all 200ms ease-in;
+  cursor: pointer;
+}
+
+button:hover {
+  color: white;
+  background-image: linear-gradient(
+    to right,
+    #fb997e,
+    #fb997e,
+    #feaa7c,
+    #ffbb7d,
+    #fecc82
+  );
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
