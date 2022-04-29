@@ -17,6 +17,7 @@
       href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Inspiration&family=Poppins&display=swap"
       rel="stylesheet"
     />
+    <script src="./public/js/script.js" defer></script>
     <title>AUTH</title>
   </head>
   <body>
@@ -36,59 +37,69 @@
         </div>
       </div>
       <div class="right">
-        <form class="form">
-          <div class="names">
-            <div class="first">
-              <label for="firstName">First Name</label>
-              <input type="text" name="firstName" id="firstName" />
-            </div>
-            <div class="last">
-              <label for="lastName">Last Name</label>
-              <input type="text" name="lastName" id="lastName" />
-            </div>
-          </div>
-          <div class="passwords">
-            <div class="password1">
-              <label for="password">Password</label>
-              <input type="text" name="password" id="password" />
-            </div>
-            <div class="password2">
-              <label for="confirmPassword">Confirm Password</label>
-              <input type="text" name="confirmPassword" id="confirmPassword" />
-            </div>
-          </div>
-          <div class="ag">
-            <div class="age">
-              <label for="age">Age</label>
-              <input type="text" name="age" id="age" />
-            </div>
-            <div class="gender">
-              <label for="gender">Gender</label>
-              <div class="gender_select">
-                <select name="gender" id="gender">
-                  <option>Male</option>
-                  <option>Female</option>
-                </select>
+        <div class="wrapper">
+          <form class="form">
+            <div class="names">
+              <div class="first">
+                <label for="firstName">First Name</label>
+                <input type="text" name="firstName" id="firstName" />
+              </div>
+              <div class="last">
+                <label for="lastName">Last Name</label>
+                <input type="text" name="lastName" id="lastName" />
               </div>
             </div>
-          </div>
-          <div class="info">
-            <div class="mobile">
-              <label for="mobile">Mobile</label>
-              <input type="text" name="mobile" id="mobile" />
+            <div class="passwords">
+              <div class="password1">
+                <label for="password">Password</label>
+                <input type="text" name="password" id="password" />
+              </div>
+              <div class="password2">
+                <label for="confirmPassword">Confirm Password</label>
+                <input
+                  type="text"
+                  name="confirmPassword"
+                  id="confirmPassword"
+                />
+              </div>
             </div>
-            <div class="email">
-              <label for="email">email</label>
-              <input type="text" name="mobile" id="mobile" />
+            <div class="ag">
+              <div class="age">
+                <label for="age">Age</label>
+                <input type="text" name="age" id="age" />
+              </div>
+              <div class="gender">
+                <label for="gender">Gender</label>
+                <div class="gender_select">
+                  <select name="gender" id="gender">
+                    <option>Male</option>
+                    <option>Female</option>
+                  </select>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="sumbit">
-            <button class="gradient-border" id="box" type="submit">
-              SUBMIT
-            </button>
-          </div>
-        </form>
+            <div class="info">
+              <div class="mobile">
+                <label for="mobile">Mobile</label>
+                <input type="text" name="mobile" id="mobile" />
+              </div>
+              <div class="email">
+                <label for="email">email</label>
+                <input type="text" name="mobile" id="mobile" />
+              </div>
+            </div>
+            <div class="sumbit">
+              <button class="gradient-border" id="box" type="submit">
+                SUBMIT
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
+    </div>
+
+    <div class="alert">
+      <h2 class="alert_message">Done !!!</h2>
     </div>
   </body>
 </html>

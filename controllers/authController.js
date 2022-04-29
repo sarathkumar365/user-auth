@@ -34,6 +34,7 @@ exports.createUser = catchAsync(async (req, res, next) => {
 });
 
 exports.getAllUsers = catchAsync(async (req, res, next) => {
+  console.log("api call");
   // 1. GET USER'S DATA
   const data = await User.find().clone();
 
