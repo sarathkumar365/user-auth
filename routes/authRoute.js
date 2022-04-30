@@ -3,6 +3,8 @@ const authController = require("../controllers/authController");
 const express = require("express");
 const router = express.Router();
 
+// BASIC REST FUNCTIONALITY
+
 router
   .route("/")
   .get(authController.getAllUsers)
@@ -10,12 +12,10 @@ router
   .patch(authController.updateUser)
   .delete(authController.deleteUser);
 
-// router.get("/", authController.home);
-// router.post("/", authController.createUser);
-// router.get("/", authController.getAllUsers);
-// router.patch("/", authController.updateUser);
-// router.delete("/:id", authController.deleteUser);
+// LOGIN & LOGOUT
+router.route("/login").post(authController.login);
 
+// FOR USER
 router.get("/user", authController.getUser);
 
 module.exports = router;

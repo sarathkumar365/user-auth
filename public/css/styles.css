@@ -334,8 +334,6 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  display: none;
 }
 
 .alert > h2 {
@@ -343,4 +341,7 @@ button:hover {
   font-weight: bold;
   font-size: 65px;
   color: #fff;
+}
+.hidden {
+  display: none;
 }

@@ -12,19 +12,29 @@ exports.home = (req, res, next) => {
 
 exports.createUser = catchAsync(async (req, res, next) => {
   // 1. GET DATA
-  // console.log(req.body.password);
+  // console.log(req.body);
+  let userData = req.body;
 
+  // join first & last name's and delete individual names , if they exist.
+
+  if (userData.firstName) {
+    userData.name = `${req.body.firstName} ${req.body.lastName}`;
+    delete userData.firstName;
+    delete userData.lastName;
+  }
   // 2. confirm passsword
-  if (req.body.password !== req.body.confirmPassword)
+  if (userData.password !== userData.confirmPassword)
     return next(new AppError("password's does not match 😶", 401));
 
   // 3. encrypt password
-  const password = req.body.password.toString();
+  const password = userData.password.toString();
   const encryptedPass = await bcrypt.hash(password, saltRounds);
-  req.body.password = encryptedPass;
+  userData.password = encryptedPass;
+  delete userData.confirmPassword;
+  // console.log(userData);
 
   // 4. CREATE USER
-  const data = await User.create(req.body);
+  const data = await User.create(userData);
   if (data) {
     res.status(200).json({
       status: "success",
@@ -65,13 +75,13 @@ exports.getUser = catchAsync(async (req, res, next) => {
 
 exports.updateUser = catchAsync(async (req, res, next) => {
   // 1. GET USER ID
-  const id = req.body.id;
-  if (!req.body.id)
+  const id = userData.id;
+  if (!userData.id)
     return next(new AppError("please provide a vslid user ID", 400));
-  delete req.body.id;
+  delete userData.id;
 
   // 2. MODIFY USER
-  const data = await User.updateOne({ _id: id }, req.body);
+  const data = await User.updateOne({ _id: id }, userData);
   const updatedUser = await User.findById(id);
   console.log(updatedUser);
 
@@ -84,7 +94,7 @@ exports.updateUser = catchAsync(async (req, res, next) => {
 
 exports.deleteUser = catchAsync(async (req, res, next) => {
   // 1. GET USER ID
-  const id = req.body.id;
+  const id = userData.id;
 
   if (!id) return next(new AppError("no user id provided!!!! 🙄", 400));
 
@@ -95,4 +105,26 @@ exports.deleteUser = catchAsync(async (req, res, next) => {
       status: "success",
       data,
     });
+});
+
+exports.login = catchAsync(async (req, res, next) => {
+  // 1. GET USER DATA
+  const userEmail = req.body.email;
+  const userPassword = req.body.password.toString();
+
+  // 2. GET CORRESPONDING USER DATA
+  const existingUserData = await User.find({ userEmail });
+
+  // 2. VALIDATE USER DATA
+
+  const valid = await bcrypt.compare(
+    userPassword,
+    existingUserData[0].password
+  );
+
+  if (!valid) return next(new AppError("passwords does not match 🤨", 401));
+  // 3. SEND RESPONSE
+  res.status(200).json({
+    message: "Logged in",
+  });
 });

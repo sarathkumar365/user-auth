@@ -5,3 +5,4 @@ package-lock.json
 dist/
 style.txt
 .cache/
+.parcel-cache/
