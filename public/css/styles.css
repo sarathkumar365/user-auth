@@ -1,3 +1,7 @@
+:root {
+  --gradient: linear-gradient(90deg, #ee6352, purple, #ee6352);
+}
+
 body {
   box-sizing: border-box;
   margin: 0;
@@ -6,21 +10,21 @@ body {
   height: 100vh;
   background-repeat: no-repeat;
 
-  background-image: linear-gradient(
-    to left top,
-    #f48982,
-    #f48a82,
-    #f48b82,
-    #f38c82,
-    #f38d82,
-    #f69380,
-    #f9997f,
-    #fba07e,
-    #feae7d,
-    #ffbd7e,
-    #fecc82,
-    #fbdb89
-  );
+  background-image: var(--gradient);
+  background-size: 200%;
+  animation: bg-animation 10s infinite alternate;
+}
+
+@keyframes bg-animation {
+  0% {
+    background-position: left;
+  }
+  50% {
+    background-position: right;
+  }
+  100% {
+    background-position: left;
+  }
 }
 
 .main {
@@ -129,7 +133,6 @@ h2 {
 .form {
   height: 700px;
   width: 602px;
-  background-color: rgb(195, 103, 103);
 
   display: flex;
   flex-direction: column;
@@ -138,9 +141,24 @@ h2 {
 
   gap: 10px;
 
-  /* border: 2px solid; */
-  border-radius: 5px;
-  /* border-image: linear-gradient(315deg, #ffbd7e, #f9997f 45%) 5; */
+  background: rgba(221, 212, 212, 0.389);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2.7px);
+  -webkit-backdrop-filter: blur(2.7px);
+  border: 1px solid rgba(200, 188, 188, 0.3);
+}
+
+input[type="text"] {
+  padding: 10px 15px;
+  margin: 5px 0;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus {
+  /* outline-color: #ee6352; */
+  outline-color: hsla(7, 82%, 63%, 0.75);
+  /* outline: none; */
 }
 
 .names {
@@ -286,7 +304,7 @@ button {
   margin-top: 20px;
   width: 150px;
   height: 40px;
-  background-color: rgba(0, 0, 0, 0.25);
+
   color: #fff;
   font-weight: 800px;
   letter-spacing: 2px;
@@ -294,29 +312,19 @@ button {
   border-radius: 5px;
   font-size: 17px;
 
-  transition: all 200ms ease-in;
+  background-image: var(--gradient);
+  background-size: 200%;
+  background-clip: text;
+  /* color: transparent; */
+
+  transition: all 1.5s ease-in-out;
   cursor: pointer;
 }
 
 button:hover {
-  color: white;
-  background-image: linear-gradient(
-    to right,
-    #fb997e,
-    #fb997e,
-    #feaa7c,
-    #ffbb7d,
-    #fecc82
-  );
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  background-position: right;
+  /* color: white; */
 }
-
-/* @keyframes shine {
-  to {
-    background-position: 200% center;
-  }
-} */
 
 @keyframes shine {
   from {
