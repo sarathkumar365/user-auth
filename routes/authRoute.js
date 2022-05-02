@@ -1,21 +1,21 @@
-const authController = require("../controllers/authController");
+const express = require('express');
+const authController = require('../controllers/authController');
 
-const express = require("express");
 const router = express.Router();
 
 // BASIC REST FUNCTIONALITY
 
 router
-  .route("/")
+  .route('/')
   .get(authController.getAllUsers)
   .post(authController.createUser)
   .patch(authController.updateUser)
   .delete(authController.deleteUser);
 
 // LOGIN & LOGOUT
-router.route("/login").post(authController.login);
+router.route('/login').post(authController.login);
 
 // FOR USER
-router.get("/user", authController.getUser);
+router.get('/user', authController.getUser);
 
 module.exports = router;

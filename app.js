@@ -1,15 +1,14 @@
-const authRoute = require("./routes/authRoute");
-const errorController = require("./controllers/errorController");
-
-const express = require("express");
-const cors = require("cors");
-const morgan = require("morgan");
+const express = require('express');
+const cors = require('cors');
+const morgan = require('morgan');
+const authRoute = require('./routes/authRoute');
+const errorController = require('./controllers/errorController');
 
 const app = express();
 
 app.use(cors());
 
-app.use(morgan("dev"));
+app.use(morgan('dev'));
 
 // Parse URL-encoded bodies (as sent by HTML forms)
 app.use(express.urlencoded({ extended: true }));
@@ -20,12 +19,13 @@ app.use(express.json());
 // test middleware
 
 app.use((req, res, next) => {
+  // eslint-disable-next-line no-console
   console.log(req.path);
 
   next();
 });
 
-app.use("/auth", authRoute);
+app.use('/auth', authRoute);
 
 app.use(errorController);
 

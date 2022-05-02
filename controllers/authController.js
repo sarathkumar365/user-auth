@@ -2,7 +2,9 @@ const bcrypt = require('bcrypt');
 
 // const clone = require('nodemon/lib/utils/clone');
 // const Logger = require('nodemon/lib/utils/log');
+// const { log } = require('npmlog');
 const User = require('../models/userModel');
+const jwtController = require('./jwtController');
 const AppError = require('../utils/AppError');
 const catchAsync = require('../utils/catchAsync');
 
@@ -119,7 +121,7 @@ exports.login = catchAsync(async (req, res, next) => {
   // 2. GET CORRESPONDING USER DATA
   const existingUserData = await User.find({ userEmail });
 
-  // 2. VALIDATE USER DATA
+  // 3. VALIDATE USER DATA
 
   const valid = await bcrypt.compare(
     userPassword,
@@ -127,8 +129,16 @@ exports.login = catchAsync(async (req, res, next) => {
   );
 
   if (!valid) return next(new AppError('passwords does not match 🤨', 401));
-  // 3. SEND RESPONSE
-  res.status(200).json({
+
+  // 4. CREATE JWT TOKEN
+  const accessToken = await jwtController.createToken({
+    user: existingUserData[0].name,
+    id: existingUserData[0]._id,
+    password: userPassword,
+  });
+
+  // 5. SEND RESPONSE
+  res.cookie('accessToken', accessToken).status(200).json({
     message: 'Logged in',
   });
 });
