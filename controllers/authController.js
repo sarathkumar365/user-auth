@@ -1,9 +1,11 @@
-const clone = require("nodemon/lib/utils/clone");
-const Logger = require("nodemon/lib/utils/log");
-const User = require("../models/userModel");
-const AppError = require("../utils/AppError");
-const catchAsync = require("../utils/catchAsync");
-const bcrypt = require("bcrypt");
+const bcrypt = require('bcrypt');
+
+// const clone = require('nodemon/lib/utils/clone');
+// const Logger = require('nodemon/lib/utils/log');
+const User = require('../models/userModel');
+const AppError = require('../utils/AppError');
+const catchAsync = require('../utils/catchAsync');
+
 const saltRounds = 10;
 
 exports.home = (req, res, next) => {
@@ -13,7 +15,7 @@ exports.home = (req, res, next) => {
 exports.createUser = catchAsync(async (req, res, next) => {
   // 1. GET DATA
   // console.log(req.body);
-  let userData = req.body;
+  const userData = req.body;
 
   // join first & last name's and delete individual names , if they exist.
 
@@ -37,20 +39,20 @@ exports.createUser = catchAsync(async (req, res, next) => {
   const data = await User.create(userData);
   if (data) {
     res.status(200).json({
-      status: "success",
+      status: 'success',
       data,
     });
   }
 });
 
 exports.getAllUsers = catchAsync(async (req, res, next) => {
-  console.log("api call");
+  // console.log('api call');
   // 1. GET USER'S DATA
   const data = await User.find().clone();
 
   if (data)
     res.status(200).json({
-      status: "success",
+      status: 'success',
       data,
       total: data.length,
     });
@@ -60,14 +62,14 @@ exports.getUser = catchAsync(async (req, res, next) => {
   // 1. GET USER ID
   const userId = req.body.id;
 
-  if (!userId) return next(new AppError("please provide a user ID", 400));
+  if (!userId) return next(new AppError('please provide a user ID', 400));
 
   // 2. GET USER'S DATA
   const data = await User.findById(userId).clone();
 
   if (data)
     res.status(200).json({
-      status: "success",
+      status: 'success',
       data,
       total: data.length,
     });
@@ -75,34 +77,36 @@ exports.getUser = catchAsync(async (req, res, next) => {
 
 exports.updateUser = catchAsync(async (req, res, next) => {
   // 1. GET USER ID
-  const id = userData.id;
+  const userData = req.body;
+  const { id } = userData;
   if (!userData.id)
-    return next(new AppError("please provide a vslid user ID", 400));
+    return next(new AppError('please provide a valid user ID', 400));
   delete userData.id;
 
   // 2. MODIFY USER
   const data = await User.updateOne({ _id: id }, userData);
   const updatedUser = await User.findById(id);
-  console.log(updatedUser);
+  // console.log(updatedUser);
 
   if (data)
     res.status(200).json({
-      status: "success",
+      status: 'success',
       data: updatedUser,
     });
 });
 
 exports.deleteUser = catchAsync(async (req, res, next) => {
   // 1. GET USER ID
-  const id = userData.id;
+  const userData = req.body;
+  const { id } = userData;
 
-  if (!id) return next(new AppError("no user id provided!!!! 🙄", 400));
+  if (!id) return next(new AppError('no user id provided!!!! 🙄', 400));
 
   // 2. DELETE USER
   const data = await User.deleteOne({ _id: id });
   if (data)
     res.status(200).json({
-      status: "success",
+      status: 'success',
       data,
     });
 });
@@ -122,9 +126,9 @@ exports.login = catchAsync(async (req, res, next) => {
     existingUserData[0].password
   );
 
-  if (!valid) return next(new AppError("passwords does not match 🤨", 401));
+  if (!valid) return next(new AppError('passwords does not match 🤨', 401));
   // 3. SEND RESPONSE
   res.status(200).json({
-    message: "Logged in",
+    message: 'Logged in',
   });
 });
