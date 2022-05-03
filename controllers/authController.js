@@ -140,5 +140,6 @@ exports.login = catchAsync(async (req, res, next) => {
   // 5. SEND RESPONSE
   res.cookie('accessToken', accessToken).status(200).json({
     message: 'Logged in',
+    accessToken,
   });
 });

@@ -1,4 +1,14 @@
+// const AppError = require('../utils/AppError');
+
 // error PRODUCTION
+// const JsonWebTokenError = (err) => {
+//   const error = {
+//     status: err.status,
+//     message: err.message,
+//   };
+
+//   return error;
+// };
 
 // error DEVELOPMENT
 const sendErrorDev = (err, req, res, next) => {
@@ -8,6 +18,7 @@ const sendErrorDev = (err, req, res, next) => {
   console.log(err);
   res.status(err.statusCode).json({
     message: err.message,
+    stack: err.stack,
   });
 };
 
@@ -20,10 +31,12 @@ module.exports = (err, req, res, next) => {
 
   if (env === 'dev') {
     err.statusCode = err.statusCode || 500;
+
     sendErrorDev(err, req, res, next);
   } else {
+    // if (err.name === 'JsonWebTokenError') error = JsonWebTokenError(err);
     // eslint-disable-next-line no-undef
-    sendErrorProd();
+    sendErrorProd(req, res, error, next);
   }
 
   //   console.log(err);

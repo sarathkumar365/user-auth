@@ -1,5 +1,6 @@
 const express = require('express');
 const authController = require('../controllers/authController');
+const jwtController = require('../controllers/jwtController');
 
 const router = express.Router();
 
@@ -7,13 +8,14 @@ const router = express.Router();
 
 router
   .route('/')
-  .get(authController.getAllUsers)
+  .get(jwtController.authenticate, authController.getAllUsers)
   .post(authController.createUser)
-  .patch(authController.updateUser)
-  .delete(authController.deleteUser);
+  .patch(jwtController.authenticate, authController.updateUser)
+  .delete(jwtController.authenticate, authController.deleteUser);
 
 // LOGIN & LOGOUT
 router.route('/login').post(authController.login);
+// router.route('/authenticate').get(jwtController.authenticate);
 
 // FOR USER
 router.get('/user', authController.getUser);

@@ -56,7 +56,7 @@ h2 {
 .welcome h2 {
   margin: 0;
 
-  font-family: "Poppins";
+  font-family: 'Poppins';
   font-weight: bold;
   font-size: 95px;
   color: #fff;
@@ -68,7 +68,7 @@ h2 {
 .auth h1 {
   margin: 0;
 
-  font-family: "Poppins";
+  font-family: 'Poppins';
   font-weight: bold;
   font-size: 95px;
   color: #fff;
@@ -82,15 +82,15 @@ h2 {
 .message p {
   margin-left: -37px;
 
-  font-family: "Poppins";
+  font-family: 'Poppins';
   font-weight: medium;
   font-size: 21px;
   color: #fff;
 }
 
 .message span {
-  font-family: "Dancing Script", cursive;
-  font-family: "Inspiration", cursive;
+  font-family: 'Dancing Script', cursive;
+  font-family: 'Inspiration', cursive;
 
   font-size: 55px;
   font-weight: 1000px;
@@ -149,13 +149,13 @@ h2 {
   border: 1px solid rgba(200, 188, 188, 0.3);
 }
 
-input[type="text"] {
+input[type='text'] {
   padding: 10px 15px;
   margin: 5px 0;
   box-sizing: border-box;
 }
 
-input[type="text"]:focus {
+input[type='text']:focus {
   /* outline-color: #ee6352; */
   outline-color: hsla(7, 82%, 63%, 0.75);
   /* outline: none; */
@@ -183,7 +183,7 @@ input[type="text"]:focus {
 input {
   border: none;
 }
-.names input[type="text"] {
+.names input[type='text'] {
   width: 250px;
   height: 45px;
   border-radius: 5px;
@@ -215,7 +215,7 @@ input {
   font-family: Poppins;
 }
 
-.passwords input[type="text"] {
+.passwords input[type='text'] {
   width: 514px;
   height: 45px;
   border-radius: 5px;
@@ -245,7 +245,7 @@ input {
   justify-content: center;
 }
 
-.ag input[type="text"] {
+.ag input[type='text'] {
   width: 240px;
   height: 45px;
   border-radius: 5px;
@@ -267,7 +267,7 @@ select > option {
   border-radius: 5px;
 }
 
-input[type="text"] {
+input[type='text'] {
   font-size: 25px;
   font-weight: 300px;
 }
@@ -295,7 +295,7 @@ input[type="text"] {
   font-family: Poppins;
 }
 
-.info input[type="text"] {
+.info input[type='text'] {
   width: 514px;
   height: 45px;
   border-radius: 5px;
@@ -306,24 +306,22 @@ button {
   height: 40px;
 
   color: #fff;
-  font-weight: 800px;
   letter-spacing: 2px;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.85);
   border-radius: 5px;
   font-size: 17px;
 
-  background-image: var(--gradient);
-  background-size: 200%;
-  background-clip: text;
-  /* color: transparent; */
+  background-color: rgba(255, 255, 255, 0.24);
 
-  transition: all 1.5s ease-in-out;
-  cursor: pointer;
+  transition: background-image 5s ease-in;
 }
 
 button:hover {
-  background-position: right;
-  /* color: white; */
+  cursor: pointer;
+  background-image: var(--gradient);
+  background-size: 200%;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 
 @keyframes shine {
@@ -345,7 +343,7 @@ button:hover {
 }
 
 .alert > h2 {
-  font-family: "Poppins";
+  font-family: 'Poppins';
   font-weight: bold;
   font-size: 65px;
   color: #fff;
