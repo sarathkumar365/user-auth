@@ -1,5 +1,4 @@
 const bcrypt = require('bcrypt');
-
 // const clone = require('nodemon/lib/utils/clone');
 // const Logger = require('nodemon/lib/utils/log');
 // const { log } = require('npmlog');
@@ -138,8 +137,29 @@ exports.login = catchAsync(async (req, res, next) => {
   });
 
   // 5. SEND RESPONSE
-  res.cookie('accessToken', accessToken).status(200).json({
+
+  const cookieOptions = {
+    httpOnly: true,
+    maxAge: 120000,
+  };
+
+  res.cookie('accessToken', accessToken, cookieOptions).status(200).json({
     message: 'Logged in',
     accessToken,
+  });
+});
+
+exports.logout = catchAsync(async (req, res, next) => {
+  const cookieOptions = {
+    httpOnly: true,
+    maxAge: 2000,
+  };
+  // check if any cookie even exist's
+
+  if (!req.cookie) {
+    return next(new AppError('you are not logged in', 401));
+  }
+  res.cookie('accessToken', '', cookieOptions).status(204).json({
+    message: 'Logged out',
   });
 });

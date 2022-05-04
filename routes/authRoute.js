@@ -15,6 +15,8 @@ router
 
 // LOGIN & LOGOUT
 router.route('/login').post(authController.login);
+router.route('/logout').get(authController.logout);
+
 // router.route('/authenticate').get(jwtController.authenticate);
 
 // FOR USER
