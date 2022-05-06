@@ -494,7 +494,7 @@ input[type='text'] {
 @keyframes fadeinTop {
   0% {
     opacity: 0;
-    transform: translateY(-100px);
+    transform: translateY(-50px);
   }
   50% {
     opacity: 0.5;
@@ -507,7 +507,7 @@ input[type='text'] {
 @keyframes fadeinLeft {
   0% {
     opacity: 0;
-    transform: translateX(-100px);
+    transform: translateX(-50px);
   }
   50% {
     opacity: 0.5;
@@ -521,7 +521,7 @@ input[type='text'] {
 @keyframes fadeinRight {
   0% {
     opacity: 0;
-    transform: translateX(100px);
+    transform: translateX(50px);
   }
   50% {
     opacity: 0.5;

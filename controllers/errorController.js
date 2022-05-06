@@ -11,7 +11,7 @@
 // };
 
 // error DEVELOPMENT
-const sendErrorDev = (err, req, res, next) => {
+const sendErrorDev = (err, req, res) => {
   // eslint-disable-next-line no-console
   console.log('DEVELOPMENT ERROR 🚨');
   // eslint-disable-next-line no-console
@@ -30,6 +30,7 @@ module.exports = (err, req, res, next) => {
   const env = 'dev';
 
   if (env === 'dev') {
+    // eslint-disable-next-line no-param-reassign
     err.statusCode = err.statusCode || 500;
 
     sendErrorDev(err, req, res, next);

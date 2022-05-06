@@ -155,6 +155,7 @@ exports.logout = catchAsync(async (req, res, next) => {
     maxAge: 2000,
   };
   // check if any cookie even exist's
+  console.log('hai');
 
   if (!req.cookie) {
     return next(new AppError('you are not logged in', 401));
