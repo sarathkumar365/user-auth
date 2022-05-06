@@ -52,10 +52,7 @@ signUpBttn.addEventListener('click', function (e) {
         const res = await axios.post(url, data);
         console.log(res);
         if (res.status === 200) {
-          const main = document.getElementById('#main');
-          const alert = document.querySelector('.alert');
-          main.classList.add('hidden');
-          alert.classList.remove('hidden');
+          // TODO
         }
       } catch (error) {
         if (error) {
