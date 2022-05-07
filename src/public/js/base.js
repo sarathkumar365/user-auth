@@ -52,7 +52,7 @@ signUpBttn.addEventListener('click', function (e) {
         const res = await axios.post(url, data);
         console.log(res);
         if (res.status === 200) {
-          // TODO
+          // render success message
         }
       } catch (error) {
         if (error) {
