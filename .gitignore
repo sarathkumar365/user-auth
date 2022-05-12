@@ -7,3 +7,4 @@ style.txt
 .cache/
 .parcel-cache/
 version_1.txt
+.eslintrc.json
