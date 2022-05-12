@@ -17,6 +17,7 @@ const sendErrorDev = (err, req, res) => {
   // eslint-disable-next-line no-console
   console.log(err);
   res.status(err.statusCode).json({
+    status: 'error',
     message: err.message,
     stack: err.stack,
   });
