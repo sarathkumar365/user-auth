@@ -155,13 +155,13 @@ h2 {
   border: 1px solid rgba(200, 188, 188, 0.3);
 }
 
-input[type='text'] {
+.form > input[type='text'] {
   padding: 10px 15px;
   margin: 5px 0;
   box-sizing: border-box;
 }
 
-input[type='text']:focus {
+.form > input[type='text']:focus {
   /* outline-color: #ee6352; */
   outline-color: hsla(7, 82%, 63%, 0.75);
   /* outline: none; */
@@ -473,4 +473,96 @@ input[type='text'] {
   font-family: poppins;
   font-weight: bold;
   padding: 10px;
+}
+
+.login {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 15px;
+}
+
+.loginBox > p {
+  margin: 0;
+  /* margin-left: 100px; */
+
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  font-family: poppins;
+}
+
+.inp-boxes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 10px;
+}
+
+.logEmail,
+.pass {
+  border-radius: 4px;
+}
+
+.inp-boxes > input[type='text'] {
+  padding: 10px 15px;
+  margin: 4px 0;
+  box-sizing: border-box;
+
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+
+  outline: none;
+  transition: background-color 0.4s ease-in;
+}
+.inp-boxes > input[type='text']:focus {
+  background-color: #fff;
+}
+
+.loginBox > button {
+  all: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: transparent;
+  font-size: 18px;
+  font-family: poppins;
+  letter-spacing: 2px;
+  font-weight: bold;
+  color: white;
+
+  width: 120px;
+  height: 35px;
+  /* border: 1px solid white; */
+  border-radius: 4px;
+
+  cursor: pointer;
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  transition: background-color 0.4s ease;
+}
+
+.loginBox > button:hover {
+  background-color: transparent;
 }

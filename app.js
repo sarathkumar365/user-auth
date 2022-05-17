@@ -6,7 +6,12 @@ const errorController = require('./controllers/errorController');
 
 const app = express();
 
-app.use(cors());
+const corsOptions = {
+  origin: true,
+  Credentials: true,
+};
+
+app.use(cors(corsOptions));
 
 app.use(morgan('dev'));
 

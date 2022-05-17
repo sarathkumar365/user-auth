@@ -1,4 +1,5 @@
 import axios from 'axios';
+axios.defaults.withCredentials = true;
 
 const url = 'http://127.0.0.1:4444/auth/';
 const url2 = 'http://localhost:4444/auth/';
@@ -40,3 +41,28 @@ export async function sendData() {
     return msg;
   }
 }
+
+export const login = async () => {
+  console.log('login!!!');
+
+  const email = document.getElementById('logEmail').value;
+  const password = document.getElementById('pass').value;
+
+  const data = {
+    email,
+    password,
+  };
+  // console.log(data);
+  const cookieOptions = { withCredentials: true };
+
+  try {
+    const res = await axios.post('http://127.0.0.1:4444/auth/login', data);
+    console.log(res);
+    const msg = `Login sucessful 🍷 `;
+    return msg;
+  } catch (err) {
+    // console.log(err);
+    const msg = `Oops!!! ${err.response.data.message} 🚫 🚫`;
+    return msg;
+  }
+};
