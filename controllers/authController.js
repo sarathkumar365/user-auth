@@ -138,10 +138,8 @@ exports.login = catchAsync(async (req, res, next) => {
 
   // 5. SEND RESPONSE
 
-  const cookieOptions = {
-    httpOnly: true,
-    maxAge: 120000,
-  };
+  const cookieOptions = { sameSite: 'none', secure: true };
+  console.log('cookie sending ⛈️');
 
   res.cookie('accessToken', accessToken, cookieOptions).status(200).json({
     message: 'Logged in',
@@ -155,7 +153,6 @@ exports.logout = catchAsync(async (req, res, next) => {
     maxAge: 2000,
   };
   // check if any cookie even exist's
-  console.log('hai');
 
   if (!req.cookie) {
     return next(new AppError('you are not logged in', 401));

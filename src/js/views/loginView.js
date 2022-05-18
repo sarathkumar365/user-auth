@@ -39,7 +39,7 @@ const generateMarkup = function () {
   const markup = `
     <div class="login">
       <div class="loginBox">
-        <p>Please login using your AUTH credentials</p>
+        <p>Please login using your <span class="auth">AUTH</span> credentials</p>
         <div class="inp-boxes">
           <input
             type="text"
@@ -58,7 +58,7 @@ const generateMarkup = function () {
             value="password"
           />
         </div>
-        <button id="loginBtn">LOGIN</button>
+        <button id="loginBtn">SIGN IN</button>
       </div>
     </div>`;
 

@@ -522,17 +522,14 @@ input[type='text'] {
   margin: 4px 0;
   box-sizing: border-box;
 
-  background: rgba(255, 255, 255, 0.2);
+  background-color: #fff;
+  /* background: rgba(255, 255, 255, 0.2);
   border-radius: 4px;
   backdrop-filter: blur(4px);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  color: white;
+  color: white; */
 
   outline: none;
-  transition: background-color 0.4s ease-in;
-}
-.inp-boxes > input[type='text']:focus {
-  background-color: #fff;
 }
 
 .loginBox > button {
@@ -565,4 +562,10 @@ input[type='text'] {
 
 .loginBox > button:hover {
   background-color: transparent;
+}
+.loginBox > p > span {
+  font-family: 'Dancing Script', cursive;
+  /* font-family: 'Inspiration', cursive; */
+  font-weight: bold;
+  font-size: 30px;
 }
