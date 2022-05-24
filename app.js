@@ -1,3 +1,4 @@
+require('dotenv').config({ path: __dirname + '.env' });
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
@@ -29,7 +30,6 @@ app.use((req, res, next) => {
 
   next();
 });
-
 app.use('/auth', authRoute);
 
 app.use(errorController);

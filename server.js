@@ -8,7 +8,7 @@ dotenv.config({ path: './.env' });
 
 const app = require('./app');
 
-const port = 4444;
+const port = process.env.PORT || 3000;
 
 mongoose.connect('mongodb://localhost:27017/user-auth').then(() => {
   // eslint-disable-next-line no-console

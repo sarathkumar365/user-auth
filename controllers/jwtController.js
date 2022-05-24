@@ -1,9 +1,13 @@
 const jwt = require('jsonwebtoken');
+
+const User = require('../models/userModel');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/AppError');
 
 exports.createToken = async (data) => {
-  const jwtToken = await jwt.sign(data, process.env.JWT_SECRET_KEY);
+  const jwtToken = await jwt.sign(data, process.env.JWT_SECRET_KEY, {
+    expiresIn: '5min',
+  });
   return jwtToken;
 };
 
@@ -14,7 +18,9 @@ exports.authenticate = catchAsync(async (req, res, next) => {
 
   const token = req.headers.authorization.split(' ')[1];
 
+  // 2. check if the TOKEN is valid
   const isValid = await jwt.verify(token, process.env.JWT_SECRET_KEY);
+
   req.userId = isValid.id;
   next();
 });

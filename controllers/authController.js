@@ -1,20 +1,22 @@
 const bcrypt = require('bcrypt');
-// const clone = require('nodemon/lib/utils/clone');
-// const Logger = require('nodemon/lib/utils/log');
-// const { log } = require('npmlog');
 const User = require('../models/userModel');
 const jwtController = require('./jwtController');
 const AppError = require('../utils/AppError');
 const catchAsync = require('../utils/catchAsync');
 
-const saltRounds = 10;
+const saltRounds = parseInt(process.env.SALT_ROUNDS);
 
-exports.home = (req, res, next) => {
-  res.send(`YOU HAVE REACHER AUTHORIZATION API 😁`);
+const isAdmin = async (userId) => {
+  const user = await User.findOne({ _id: userId });
+  // console.log(user);
+  if (user.admin && user.admin === true) return true;
+
+  return false;
 };
 
 exports.createUser = catchAsync(async (req, res, next) => {
-  // 1. GET DATA
+  // 1. GET DATA & check if the body includes ADMIN field, if yes REMOVE it.
+  if (req.body.admin) delete req.body.admin;
   // console.log(req.body);
   const userData = req.body;
 
@@ -47,8 +49,17 @@ exports.createUser = catchAsync(async (req, res, next) => {
 });
 
 exports.getAllUsers = catchAsync(async (req, res, next) => {
-  // console.log('api call');
-  // 1. GET USER'S DATA
+  // 1. check whether it'd an ADMIN
+  if (!(await isAdmin(req.userId))) {
+    return next(
+      new AppError(
+        "You dont't have access to these kind of information. Please stay back 👮💻",
+        401
+      )
+    );
+  }
+
+  // 2. GET USER'S DATA
   const data = await User.find().clone();
 
   if (data)
@@ -60,6 +71,8 @@ exports.getAllUsers = catchAsync(async (req, res, next) => {
 });
 
 exports.getUser = catchAsync(async (req, res, next) => {
+  // TODO: make this route for only admins
+
   // 1. GET USER ID
   const userId = req.body.id;
 
@@ -98,8 +111,7 @@ exports.updateUser = catchAsync(async (req, res, next) => {
 
 exports.deleteUser = catchAsync(async (req, res, next) => {
   // 1. GET USER ID
-  const userData = req.body;
-  const { id } = userData;
+  const { id } = req.body;
 
   if (!id) return next(new AppError('no user id provided!!!! 🙄', 400));
 
@@ -115,24 +127,28 @@ exports.deleteUser = catchAsync(async (req, res, next) => {
 exports.login = catchAsync(async (req, res, next) => {
   // 1. GET USER DATA
   const userEmail = req.body.email;
-  const userPassword = req.body.password.toString();
+  const userPassword = req.body.password;
 
   // 2. GET CORRESPONDING USER DATA
-  const existingUserData = await User.find({ userEmail });
+  const existingUserData = await User.findOne({ email: userEmail });
+  if (!existingUserData)
+    return next(
+      new AppError(
+        "'Oops, can't find you. Please check your email or password'",
+        400
+      )
+    );
 
   // 3. VALIDATE USER DATA
 
-  const valid = await bcrypt.compare(
-    userPassword,
-    existingUserData[0].password
-  );
+  const valid = await bcrypt.compare(userPassword, existingUserData.password);
 
   if (!valid) return next(new AppError('passwords does not match 🤨', 401));
 
   // 4. CREATE JWT TOKEN
   const accessToken = await jwtController.createToken({
-    user: existingUserData[0].name,
-    id: existingUserData[0]._id,
+    user: existingUserData.name,
+    id: existingUserData._id,
     password: userPassword,
   });
 
