@@ -76,10 +76,19 @@ exports.getUser = catchAsync(async (req, res, next) => {
   // 1. GET USER ID
   const userId = req.body.id;
 
-  if (!userId) return next(new AppError('please provide a user ID', 400));
+  if (!userId) return next(new AppError('please provide a valid user ID', 400));
 
   // 2. GET USER'S DATA
   const data = await User.findById(userId).clone();
+
+  // 3. check whether the user exist's
+  if (!data) return next(new AppError('No such user exist', 404));
+
+  // 4. check whether the user is an administrator, if yes throw an error
+  if (data.admin)
+    return next(
+      new AppError('you are not authorized to access this details', 404)
+    );
 
   if (data)
     res.status(200).json({
@@ -97,7 +106,11 @@ exports.updateUser = catchAsync(async (req, res, next) => {
     return next(new AppError('please provide a valid user ID', 400));
   delete userData.id;
 
-  // 2. MODIFY USER
+  // 2. check whether the user exist's
+  const user = await User.findById(id).clone();
+  if (!user) return next(new AppError('No such user exist', 404));
+
+  // 3. MODIFY USER
   const data = await User.updateOne({ _id: id }, userData);
   const updatedUser = await User.findById(id);
   // console.log(updatedUser);
@@ -112,8 +125,11 @@ exports.updateUser = catchAsync(async (req, res, next) => {
 exports.deleteUser = catchAsync(async (req, res, next) => {
   // 1. GET USER ID
   const { id } = req.body;
-
   if (!id) return next(new AppError('no user id provided!!!! 🙄', 400));
+
+  // 2. check whether the user exist's
+  const user = await User.findById(id).clone();
+  if (!user) return next(new AppError('No such user exist', 404));
 
   // 2. DELETE USER
   const data = await User.deleteOne({ _id: id });
