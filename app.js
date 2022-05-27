@@ -1,5 +1,6 @@
 require('dotenv').config({ path: __dirname + '.env' });
 const express = require('express');
+const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const morgan = require('morgan');
 const authRoute = require('./routes/authRoute');
@@ -15,6 +16,9 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 app.use(morgan('dev'));
+
+// parse cookies
+app.use(cookieParser());
 
 // Parse URL-encoded bodies (as sent by HTML forms)
 app.use(express.urlencoded({ extended: true }));

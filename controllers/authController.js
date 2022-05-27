@@ -74,7 +74,7 @@ exports.getUser = catchAsync(async (req, res, next) => {
   // TODO: make this route for only admins
 
   // 1. GET USER ID
-  const userId = req.body.id;
+  const userId = req.userId;
 
   if (!userId) return next(new AppError('please provide a valid user ID', 400));
 
@@ -101,9 +101,8 @@ exports.getUser = catchAsync(async (req, res, next) => {
 exports.updateUser = catchAsync(async (req, res, next) => {
   // 1. GET USER ID
   const userData = req.body;
-  const { id } = userData;
-  if (!userData.id)
-    return next(new AppError('please provide a valid user ID', 400));
+  const id = req.userId;
+  if (!id) return next(new AppError('please provide a valid user ID', 400));
   delete userData.id;
 
   // 2. check whether the user exist's
@@ -124,7 +123,7 @@ exports.updateUser = catchAsync(async (req, res, next) => {
 
 exports.deleteUser = catchAsync(async (req, res, next) => {
   // 1. GET USER ID
-  const { id } = req.body;
+  const id = req.userId;
   if (!id) return next(new AppError('no user id provided!!!! 🙄', 400));
 
   // 2. check whether the user exist's
@@ -170,7 +169,9 @@ exports.login = catchAsync(async (req, res, next) => {
 
   // 5. SEND RESPONSE
 
-  const cookieOptions = { sameSite: 'none', secure: true };
+  const cookieOptions = { sameSite: 'none' };
+  // if (process.env.ENV === 'production') cookieOptions.secure = true;
+
   console.log('cookie sending ⛈️');
 
   res.cookie('accessToken', accessToken, cookieOptions).status(200).json({
@@ -186,7 +187,7 @@ exports.logout = catchAsync(async (req, res, next) => {
   };
   // check if any cookie even exist's
 
-  if (!req.cookie) {
+  if (!req.cookies.accessToken) {
     return next(new AppError('you are not logged in', 401));
   }
   res.cookie('accessToken', '', cookieOptions).status(204).json({

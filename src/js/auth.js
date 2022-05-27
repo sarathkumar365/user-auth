@@ -52,16 +52,16 @@ export const login = async () => {
     email,
     password,
   };
-  // console.log(data);
+  console.log(data);
   const cookieOptions = { withCredentials: true };
 
   try {
-    const res = await axios.post('http://127.0.0.1:4444/auth/login', data);
+    const res = await axios.post('http://127.0.0.1:3000/auth/login', data);
     console.log(res);
     const msg = `Login sucessful 🍷 `;
     return msg;
   } catch (err) {
-    // console.log(err);
+    console.log(err);
     const msg = `Oops!!! ${err.response.data.message} 🚫 🚫`;
     return msg;
   }

@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
-    "start:dev": "parcel src/index.html",
-    "start:watch": "parcel src/index.html && parcel watch src/index.html"
+    "start:dev": "parcel --port 3333 src/index.html",
+    "start:watch": "parcel --port 3333 src/index.html && parcel watch src/index.html"
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,7 @@
   "dependencies": {
     "axios": "^0.27.2",
     "bcrypt": "^5.0.1",
+    "cookie-parser": "^1.4.6",
     "core-js": "^3.22.5",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",

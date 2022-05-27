@@ -20,6 +20,6 @@ router.route('/logout').get(authController.logout);
 // router.route('/authenticate').get(jwtController.authenticate);
 
 // FOR USER
-router.get('/user', authController.getUser);
+router.route('/user').get(jwtController.authenticate, authController.getUser);
 
 module.exports = router;
