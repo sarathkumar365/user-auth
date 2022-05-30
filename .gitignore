@@ -2,9 +2,10 @@ node_modules/
 package-lock.json
 .git
 .env
-dist/
 style.txt
 .cache/
 .parcel-cache/
 version_1.txt
 .eslintrc.json
+about.html
+src/css/about.css

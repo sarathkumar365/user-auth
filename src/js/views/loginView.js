@@ -1,5 +1,6 @@
 import { async } from 'regenerator-runtime';
-import { login } from '../auth';
+import { login, getUser } from '../auth';
+import { renderAboutView } from './renderAboutView';
 
 const parentEl = document.querySelector('body');
 
@@ -8,7 +9,7 @@ const clearView = () => {
 };
 
 const renderAlert = (msg) => {
-  // console.log(msg);
+  console.log(msg);
   const markup = `
       <div  id="alertBox">
         <div class="alertMsg">
@@ -31,7 +32,16 @@ export const renderLoginView = () => {
 
     const res = await login();
 
-    renderAlert(res);
+    if (res.status === true) {
+      clearView();
+      const user = await getUser();
+      renderAboutView(user.user);
+    } else {
+      clearView();
+      renderAlert(res.msg);
+    }
+
+    // renderAlert(res);
   });
 };
 

@@ -1,13 +1,11 @@
 {
   "name": "userauth",
   "version": "1.0.0",
-  "description": "user authentication and authorization syatem",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
-    "start:dev": "parcel --port 3333 src/index.html",
-    "start:watch": "parcel --port 3333 src/index.html && parcel watch src/index.html"
+    "build": "webpack",
+    "dev": "webpack serve"
   },
   "repository": {
     "type": "git",
@@ -32,11 +30,22 @@
     "mongoose": "^6.2.10",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.16",
-    "parcel": "^2.5.0",
+    "path": "^0.12.7",
     "regenerator-runtime": "^0.13.9"
   },
   "devDependencies": {
+    "@babel/core": "^7.18.2",
+    "@babel/preset-env": "^7.18.2",
+    "babel-loader": "^8.2.5",
+    "css-loader": "^6.7.1",
+    "html-webpack-plugin": "^5.5.0",
     "prettier": "^2.6.2",
-    "process": "^0.11.10"
+    "process": "^0.11.10",
+    "sass": "^1.52.1",
+    "sass-loader": "^13.0.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.72.1",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.9.0"
   }
 }

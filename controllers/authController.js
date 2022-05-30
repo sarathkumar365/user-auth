@@ -141,6 +141,7 @@ exports.deleteUser = catchAsync(async (req, res, next) => {
 
 exports.login = catchAsync(async (req, res, next) => {
   // 1. GET USER DATA
+  console.log(req.body);
   const userEmail = req.body.email;
   const userPassword = req.body.password;
 
@@ -169,7 +170,7 @@ exports.login = catchAsync(async (req, res, next) => {
 
   // 5. SEND RESPONSE
 
-  const cookieOptions = { sameSite: 'none' };
+  const cookieOptions = { sameSite: 'none', secure: true };
   // if (process.env.ENV === 'production') cookieOptions.secure = true;
 
   console.log('cookie sending ⛈️');

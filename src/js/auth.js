@@ -1,8 +1,9 @@
 import axios from 'axios';
+import { async } from 'regenerator-runtime';
 axios.defaults.withCredentials = true;
 
-const url = 'http://127.0.0.1:4444/auth/';
-const url2 = 'http://localhost:4444/auth/';
+const url = 'http://127.0.0.1:5555/auth/';
+const url2 = 'http://localhost:5555/auth/';
 
 export async function sendData() {
   console.log('data SENT!!!');
@@ -52,17 +53,43 @@ export const login = async () => {
     email,
     password,
   };
-  console.log(data);
-  const cookieOptions = { withCredentials: true };
+  // console.log(data);
+  // const cookieOptions = { withCredentials: true };
 
   try {
-    const res = await axios.post('http://127.0.0.1:3000/auth/login', data);
-    console.log(res);
+    // const res = await axios.post('http://127.0.0.1:5555/auth/login', data);
+    const res = await axios.post(`${url2}/login`, data);
+
+    // console.log(res);
     const msg = `Login sucessful 🍷 `;
-    return msg;
+    return { res, status: true };
   } catch (err) {
+    console.log('ERROR in login 🔴');
     console.log(err);
     const msg = `Oops!!! ${err.response.data.message} 🚫 🚫`;
-    return msg;
+    return { msg, status: false };
+  }
+};
+
+export const getUser = async () => {
+  console.log('user getting ....');
+  try {
+    // const res = await axios.post('http://127.0.0.1:5555/auth/login', data);
+    const res = await axios.get(`${url2}/user`);
+    const user = res.data.data;
+    // console.log(user);
+    return { user, status: true };
+  } catch (err) {
+    console.log('ERROR in login 🔴');
+    console.log(err.response.data.message);
+  }
+};
+
+export const logout = async () => {
+  const res = await axios.get(`${url2}/logout`);
+  console.log(res);
+
+  if (res.status === 200) {
+    location.reload();
   }
 };
