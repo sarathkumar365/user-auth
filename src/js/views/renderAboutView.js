@@ -43,14 +43,13 @@ export const renderAboutView = (user) => {
 
   const logoutBtn = document.getElementById('logoutBtn');
   logoutBtn.addEventListener('click', () => {
-    console.log('logout');
+    // console.log('logout');
     logout();
   });
 
   const anchor = document.querySelectorAll('a');
   anchor.forEach((i) => {
     i.addEventListener('click', () => {
-      console.log('hai');
       alert('Feature comming soon !!! 🔜 ');
     });
   });

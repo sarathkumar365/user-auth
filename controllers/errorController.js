@@ -61,8 +61,6 @@ const ValidationError = (err, res, next) => {
 };
 
 const SyntaxError = (err, res) => {
-  console.log('hai');
-
   // TODO: this occurs when there is an unexpected character in the user input.
 
   // FIX LATER

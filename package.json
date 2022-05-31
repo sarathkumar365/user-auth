@@ -2,8 +2,8 @@
   "name": "userauth",
   "version": "1.0.0",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js",
+    "start": "node server.js",
+    "start:dev": "nodemon server.js",
     "build": "webpack",
     "dev": "webpack serve"
   },
@@ -47,5 +47,8 @@
     "webpack": "^5.72.1",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.9.0"
+  },
+  "engines": {
+    "node": ">=10.0.0"
   }
 }

@@ -28,12 +28,12 @@ app.use(express.json());
 
 // test middleware
 
-app.use((req, res, next) => {
-  // eslint-disable-next-line no-console
-  console.log(req.path);
+// app.use((req, res, next) => {
+//   eslint-disable-next-line no-console
+//   console.log(req.path);
 
-  next();
-});
+//   next();
+// });
 app.use('/auth', authRoute);
 
 app.use(errorController);

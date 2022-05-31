@@ -85,10 +85,10 @@ exports.getUser = catchAsync(async (req, res, next) => {
   if (!data) return next(new AppError('No such user exist', 404));
 
   // 4. check whether the user is an administrator, if yes throw an error
-  if (data.admin)
-    return next(
-      new AppError('you are not authorized to access this details', 404)
-    );
+  // if (data.admin)
+  //   return next(
+  //     new AppError('you are not authorized to access this details', 404)
+  //   );
 
   if (data)
     res.status(200).json({

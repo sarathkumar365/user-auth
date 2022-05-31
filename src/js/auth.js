@@ -6,7 +6,7 @@ const url = 'http://127.0.0.1:5555/auth/';
 const url2 = 'http://localhost:5555/auth/';
 
 export async function sendData() {
-  console.log('data SENT!!!');
+  // console.log('data SENT!!!');
 
   const firstName = document.querySelector('#firstName').value;
   const lastName = document.querySelector('#lastName').value;
@@ -37,7 +37,7 @@ export async function sendData() {
       return msg;
     }
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     const msg = `Oops!!! ${error.response.data.message} 🚫 🚫`;
     return msg;
   }
@@ -81,13 +81,13 @@ export const getUser = async () => {
     return { user, status: true };
   } catch (err) {
     console.log('ERROR in login 🔴');
-    console.log(err.response.data.message);
+    // console.log(err.response.data.message);
   }
 };
 
 export const logout = async () => {
   const res = await axios.get(`${url2}/logout`);
-  console.log(res);
+  // console.log(res);
 
   if (res.status === 200) {
     location.reload();

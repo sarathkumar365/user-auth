@@ -22,7 +22,7 @@ exports.authenticate = catchAsync(async (req, res, next) => {
     return next(new AppError('You are not logged in, please login 🔶', 401));
 
   // 2. check if the TOKEN is valid
-  console.log(token);
+  // console.log(token);
   const isValid = await jwt.verify(token, process.env.JWT_SECRET_KEY);
 
   req.userId = isValid.id;

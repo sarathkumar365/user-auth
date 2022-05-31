@@ -4,7 +4,7 @@ import { sendData } from '../auth';
 const parentEl = document.querySelector('body');
 
 const renderAlert = (msg) => {
-  console.log(msg);
+  // console.log(msg);
   const markup = `
       <div  id="alertBox">
         <div class="alertMsg">
