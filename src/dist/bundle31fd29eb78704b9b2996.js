@@ -29137,8 +29137,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
- // console.log('controllers');
 
+console.log('controllers');
 var signUpBtn = document.getElementById('signupBtn');
 signUpBtn.addEventListener('click', _views_formView__WEBPACK_IMPORTED_MODULE_3__.renderFormView);
 var signinBtn = document.getElementById('signinBtn');
@@ -29149,4 +29149,4 @@ if (false) {}
 
 /******/ })()
 ;
-//# sourceMappingURL=bundled41d84eca81590b9f842.js.map
+//# sourceMappingURL=bundle31fd29eb78704b9b2996.js.map
