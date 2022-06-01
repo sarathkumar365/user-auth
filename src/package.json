@@ -1,0 +1,40 @@
+{
+  "name": "user-auth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sarathkumar365/user-auth-client.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sarathkumar365/user-auth-client/issues"
+  },
+  "homepage": "https://github.com/sarathkumar365/user-auth-client#readme",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "core-js": "^3.22.5",
+    "path": "^0.12.7",
+    "regenerator-runtime": "^0.13.9",
+    "@babel/core": "^7.18.2",
+    "@babel/preset-env": "^7.18.2",
+    "babel-loader": "^8.2.5",
+    "css-loader": "^6.7.1",
+    "html-webpack-plugin": "^5.5.0",
+    "process": "^0.11.10",
+    "sass": "^1.52.1",
+    "sass-loader": "^13.0.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.72.1",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.9.0"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  }
+}

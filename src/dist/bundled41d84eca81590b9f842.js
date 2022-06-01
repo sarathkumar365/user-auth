@@ -2462,10 +2462,10 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./src/js/auth.js":
-/*!************************!*\
-  !*** ./src/js/auth.js ***!
-  \************************/
+/***/ "./js/auth.js":
+/*!********************!*\
+  !*** ./js/auth.js ***!
+  \********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2505,7 +2505,7 @@ function _sendData() {
       while (1) {
         switch (_context4.prev = _context4.next) {
           case 0:
-            console.log('data SENT!!!');
+            // console.log('data SENT!!!');
             firstName = document.querySelector('#firstName').value;
             lastName = document.querySelector('#lastName').value;
             password = document.querySelector('#password').value;
@@ -2524,15 +2524,15 @@ function _sendData() {
               mobile: mobile,
               email: email
             };
-            _context4.prev = 10;
-            _context4.next = 13;
+            _context4.prev = 9;
+            _context4.next = 12;
             return axios__WEBPACK_IMPORTED_MODULE_0___default().post(url, data);
 
-          case 13:
+          case 12:
             res = _context4.sent;
 
             if (!(res.status === 200)) {
-              _context4.next = 17;
+              _context4.next = 16;
               break;
             }
 
@@ -2540,23 +2540,23 @@ function _sendData() {
             msg = "Welcome  to AUTH, ".concat(res.data.data.name, " \uD83D\uDE0E ");
             return _context4.abrupt("return", msg);
 
-          case 17:
-            _context4.next = 24;
+          case 16:
+            _context4.next = 22;
             break;
 
-          case 19:
-            _context4.prev = 19;
-            _context4.t0 = _context4["catch"](10);
-            console.log(_context4.t0);
+          case 18:
+            _context4.prev = 18;
+            _context4.t0 = _context4["catch"](9);
+            // console.log(error);
             _msg2 = "Oops!!! ".concat(_context4.t0.response.data.message, " \uD83D\uDEAB \uD83D\uDEAB");
             return _context4.abrupt("return", _msg2);
 
-          case 24:
+          case 22:
           case "end":
             return _context4.stop();
         }
       }
-    }, _callee4, null, [[10, 19]]);
+    }, _callee4, null, [[9, 18]]);
   }));
   return _sendData.apply(this, arguments);
 }
@@ -2638,10 +2638,9 @@ var getUser = /*#__PURE__*/function () {
           case 9:
             _context2.prev = 9;
             _context2.t0 = _context2["catch"](1);
-            console.log('ERROR in login 🔴');
-            console.log(_context2.t0.response.data.message);
+            console.log('ERROR in login 🔴'); // console.log(err.response.data.message);
 
-          case 13:
+          case 12:
           case "end":
             return _context2.stop();
         }
@@ -2665,13 +2664,13 @@ var logout = /*#__PURE__*/function () {
 
           case 2:
             res = _context3.sent;
-            console.log(res);
 
+            // console.log(res);
             if (res.status === 200) {
               location.reload();
             }
 
-          case 5:
+          case 4:
           case "end":
             return _context3.stop();
         }
@@ -2686,10 +2685,10 @@ var logout = /*#__PURE__*/function () {
 
 /***/ }),
 
-/***/ "./src/js/views/formView.js":
-/*!**********************************!*\
-  !*** ./src/js/views/formView.js ***!
-  \**********************************/
+/***/ "./js/views/formView.js":
+/*!******************************!*\
+  !*** ./js/views/formView.js ***!
+  \******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2699,7 +2698,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var regenerator_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! regenerator-runtime */ "./node_modules/regenerator-runtime/runtime.js");
 /* harmony import */ var regenerator_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(regenerator_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../auth */ "./src/js/auth.js");
+/* harmony import */ var _auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../auth */ "./js/auth.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return generator._invoke = function (innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; }(innerFn, self, context), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; this._invoke = function (method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); }; } function maybeInvokeDelegate(delegate, context) { var method = delegate.iterator[context.method]; if (undefined === method) { if (context.delegate = null, "throw" === context.method) { if (delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method)) return ContinueSentinel; context.method = "throw", context.arg = new TypeError("The iterator does not provide a 'throw' method"); } return ContinueSentinel; } var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) { if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; } return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, define(Gp, "constructor", GeneratorFunctionPrototype), define(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (object) { var keys = []; for (var key in object) { keys.push(key); } return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) { "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); } }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
@@ -2713,7 +2712,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 var parentEl = document.querySelector('body');
 
 var renderAlert = function renderAlert(msg) {
-  console.log(msg);
+  // console.log(msg);
   var markup = "\n      <div  id=\"alertBox\">\n        <div class=\"alertMsg\">\n          <p class=\"alert_message\" id=\"messagePreview\">".concat(msg, "</p>\n        </div>\n      </div>");
   clearView();
   parentEl.insertAdjacentHTML('afterbegin', markup);
@@ -2766,10 +2765,10 @@ var generateMarkup = function generateMarkup() {
 
 /***/ }),
 
-/***/ "./src/js/views/loginView.js":
-/*!***********************************!*\
-  !*** ./src/js/views/loginView.js ***!
-  \***********************************/
+/***/ "./js/views/loginView.js":
+/*!*******************************!*\
+  !*** ./js/views/loginView.js ***!
+  \*******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2779,8 +2778,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var regenerator_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! regenerator-runtime */ "./node_modules/regenerator-runtime/runtime.js");
 /* harmony import */ var regenerator_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(regenerator_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../auth */ "./src/js/auth.js");
-/* harmony import */ var _renderAboutView__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./renderAboutView */ "./src/js/views/renderAboutView.js");
+/* harmony import */ var _auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../auth */ "./js/auth.js");
+/* harmony import */ var _renderAboutView__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./renderAboutView */ "./js/views/renderAboutView.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return generator._invoke = function (innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; }(innerFn, self, context), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; this._invoke = function (method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); }; } function maybeInvokeDelegate(delegate, context) { var method = delegate.iterator[context.method]; if (undefined === method) { if (context.delegate = null, "throw" === context.method) { if (delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method)) return ContinueSentinel; context.method = "throw", context.arg = new TypeError("The iterator does not provide a 'throw' method"); } return ContinueSentinel; } var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) { if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; } return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, define(Gp, "constructor", GeneratorFunctionPrototype), define(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (object) { var keys = []; for (var key in object) { keys.push(key); } return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) { "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); } }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
@@ -2799,7 +2798,7 @@ var clearView = function clearView() {
 };
 
 var renderAlert = function renderAlert(msg) {
-  console.log(msg);
+  // console.log(msg);
   var markup = "\n      <div  id=\"alertBox\">\n        <div class=\"alertMsg\">\n          <p class=\"alert_message\" id=\"messagePreview\">".concat(msg, "</p>\n        </div>\n      </div>");
   clearView();
   parentEl.insertAdjacentHTML('afterbegin', markup);
@@ -2866,10 +2865,10 @@ var generateMarkup = function generateMarkup() {
 
 /***/ }),
 
-/***/ "./src/js/views/renderAboutView.js":
-/*!*****************************************!*\
-  !*** ./src/js/views/renderAboutView.js ***!
-  \*****************************************/
+/***/ "./js/views/renderAboutView.js":
+/*!*************************************!*\
+  !*** ./js/views/renderAboutView.js ***!
+  \*************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2877,8 +2876,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "renderAboutView": () => (/* binding */ renderAboutView)
 /* harmony export */ });
-/* harmony import */ var _auth__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../auth */ "./src/js/auth.js");
-/* harmony import */ var _resources_pencil_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../resources/pencil.png */ "./src/resources/pencil.png");
+/* harmony import */ var _auth__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../auth */ "./js/auth.js");
+/* harmony import */ var _resources_pencil_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../resources/pencil.png */ "./resources/pencil.png");
 
 
 var parentEl = document.querySelector('body');
@@ -2887,13 +2886,12 @@ var renderAboutView = function renderAboutView(user) {
   parentEl.insertAdjacentHTML('afterbegin', markup);
   var logoutBtn = document.getElementById('logoutBtn');
   logoutBtn.addEventListener('click', function () {
-    console.log('logout');
+    // console.log('logout');
     (0,_auth__WEBPACK_IMPORTED_MODULE_0__.logout)();
   });
   var anchor = document.querySelectorAll('a');
   anchor.forEach(function (i) {
     i.addEventListener('click', function () {
-      console.log('hai');
       alert('Feature comming soon !!! 🔜 ');
     });
   });
@@ -3401,7 +3399,7 @@ module.exports = function (argument) {
 
 var wellKnownSymbol = __webpack_require__(/*! ../internals/well-known-symbol */ "./node_modules/core-js/internals/well-known-symbol.js");
 var create = __webpack_require__(/*! ../internals/object-create */ "./node_modules/core-js/internals/object-create.js");
-var definePropertyModule = __webpack_require__(/*! ../internals/object-define-property */ "./node_modules/core-js/internals/object-define-property.js");
+var defineProperty = (__webpack_require__(/*! ../internals/object-define-property */ "./node_modules/core-js/internals/object-define-property.js").f);
 
 var UNSCOPABLES = wellKnownSymbol('unscopables');
 var ArrayPrototype = Array.prototype;
@@ -3409,7 +3407,7 @@ var ArrayPrototype = Array.prototype;
 // Array.prototype[@@unscopables]
 // https://tc39.es/ecma262/#sec-array.prototype-@@unscopables
 if (ArrayPrototype[UNSCOPABLES] == undefined) {
-  definePropertyModule.f(ArrayPrototype, UNSCOPABLES, {
+  defineProperty(ArrayPrototype, UNSCOPABLES, {
     configurable: true,
     value: create(null)
   });
@@ -6232,30 +6230,25 @@ module.exports = function (target, name, descriptor) {
   \***********************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var global = __webpack_require__(/*! ../internals/global */ "./node_modules/core-js/internals/global.js");
 var isCallable = __webpack_require__(/*! ../internals/is-callable */ "./node_modules/core-js/internals/is-callable.js");
 var createNonEnumerableProperty = __webpack_require__(/*! ../internals/create-non-enumerable-property */ "./node_modules/core-js/internals/create-non-enumerable-property.js");
 var makeBuiltIn = __webpack_require__(/*! ../internals/make-built-in */ "./node_modules/core-js/internals/make-built-in.js");
-var setGlobal = __webpack_require__(/*! ../internals/set-global */ "./node_modules/core-js/internals/set-global.js");
+var defineGlobalProperty = __webpack_require__(/*! ../internals/define-global-property */ "./node_modules/core-js/internals/define-global-property.js");
 
 module.exports = function (O, key, value, options) {
-  var unsafe = options ? !!options.unsafe : false;
-  var simple = options ? !!options.enumerable : false;
-  var noTargetGet = options ? !!options.noTargetGet : false;
-  var name = options && options.name !== undefined ? options.name : key;
+  if (!options) options = {};
+  var simple = options.enumerable;
+  var name = options.name !== undefined ? options.name : key;
   if (isCallable(value)) makeBuiltIn(value, name, options);
-  if (O === global) {
+  if (options.global) {
     if (simple) O[key] = value;
-    else setGlobal(key, value);
-    return O;
-  } else if (!unsafe) {
-    delete O[key];
-  } else if (!noTargetGet && O[key]) {
-    simple = true;
-  }
-  if (simple) O[key] = value;
-  else createNonEnumerableProperty(O, key, value);
-  return O;
+    else defineGlobalProperty(key, value);
+  } else {
+    if (!options.unsafe) delete O[key];
+    else if (O[key]) simple = true;
+    if (simple) O[key] = value;
+    else createNonEnumerableProperty(O, key, value);
+  } return O;
 };
 
 
@@ -6272,6 +6265,28 @@ var defineBuiltIn = __webpack_require__(/*! ../internals/define-built-in */ "./n
 module.exports = function (target, src, options) {
   for (var key in src) defineBuiltIn(target, key, src[key], options);
   return target;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/internals/define-global-property.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/core-js/internals/define-global-property.js ***!
+  \******************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var global = __webpack_require__(/*! ../internals/global */ "./node_modules/core-js/internals/global.js");
+
+// eslint-disable-next-line es-x/no-object-defineproperty -- safe
+var defineProperty = Object.defineProperty;
+
+module.exports = function (key, value) {
+  try {
+    defineProperty(global, key, { value: value, configurable: true, writable: true });
+  } catch (error) {
+    global[key] = value;
+  } return value;
 };
 
 
@@ -6808,24 +6823,24 @@ var global = __webpack_require__(/*! ../internals/global */ "./node_modules/core
 var getOwnPropertyDescriptor = (__webpack_require__(/*! ../internals/object-get-own-property-descriptor */ "./node_modules/core-js/internals/object-get-own-property-descriptor.js").f);
 var createNonEnumerableProperty = __webpack_require__(/*! ../internals/create-non-enumerable-property */ "./node_modules/core-js/internals/create-non-enumerable-property.js");
 var defineBuiltIn = __webpack_require__(/*! ../internals/define-built-in */ "./node_modules/core-js/internals/define-built-in.js");
-var setGlobal = __webpack_require__(/*! ../internals/set-global */ "./node_modules/core-js/internals/set-global.js");
+var defineGlobalProperty = __webpack_require__(/*! ../internals/define-global-property */ "./node_modules/core-js/internals/define-global-property.js");
 var copyConstructorProperties = __webpack_require__(/*! ../internals/copy-constructor-properties */ "./node_modules/core-js/internals/copy-constructor-properties.js");
 var isForced = __webpack_require__(/*! ../internals/is-forced */ "./node_modules/core-js/internals/is-forced.js");
 
 /*
-  options.target      - name of the target object
-  options.global      - target is the global object
-  options.stat        - export as static methods of target
-  options.proto       - export as prototype methods of target
-  options.real        - real prototype method for the `pure` version
-  options.forced      - export even if the native feature is available
-  options.bind        - bind methods to the target, required for the `pure` version
-  options.wrap        - wrap constructors to preventing global pollution, required for the `pure` version
-  options.unsafe      - use the simple assignment of property instead of delete + defineProperty
-  options.sham        - add a flag to not completely full polyfills
-  options.enumerable  - export as enumerable property
-  options.noTargetGet - prevent calling a getter on target
-  options.name        - the .name of the function if it does not match the key
+  options.target         - name of the target object
+  options.global         - target is the global object
+  options.stat           - export as static methods of target
+  options.proto          - export as prototype methods of target
+  options.real           - real prototype method for the `pure` version
+  options.forced         - export even if the native feature is available
+  options.bind           - bind methods to the target, required for the `pure` version
+  options.wrap           - wrap constructors to preventing global pollution, required for the `pure` version
+  options.unsafe         - use the simple assignment of property instead of delete + defineProperty
+  options.sham           - add a flag to not completely full polyfills
+  options.enumerable     - export as enumerable property
+  options.dontCallGetSet - prevent calling a getter on target
+  options.name           - the .name of the function if it does not match the key
 */
 module.exports = function (options, source) {
   var TARGET = options.target;
@@ -6835,13 +6850,13 @@ module.exports = function (options, source) {
   if (GLOBAL) {
     target = global;
   } else if (STATIC) {
-    target = global[TARGET] || setGlobal(TARGET, {});
+    target = global[TARGET] || defineGlobalProperty(TARGET, {});
   } else {
     target = (global[TARGET] || {}).prototype;
   }
   if (target) for (key in source) {
     sourceProperty = source[key];
-    if (options.noTargetGet) {
+    if (options.dontCallGetSet) {
       descriptor = getOwnPropertyDescriptor(target, key);
       targetProperty = descriptor && descriptor.value;
     } else targetProperty = target[key];
@@ -8448,11 +8463,12 @@ var makeBuiltIn = module.exports = function (value, name, options) {
   if (CONFIGURABLE_LENGTH && options && hasOwn(options, 'arity') && value.length !== options.arity) {
     defineProperty(value, 'length', { value: options.arity });
   }
-  if (options && hasOwn(options, 'constructor') && options.constructor) {
-    if (DESCRIPTORS) try {
-      defineProperty(value, 'prototype', { writable: false });
-    } catch (error) { /* empty */ }
-  } else value.prototype = undefined;
+  try {
+    if (options && hasOwn(options, 'constructor') && options.constructor) {
+      if (DESCRIPTORS) defineProperty(value, 'prototype', { writable: false });
+    // in V8 ~ Chrome 53, prototypes of some methods, like `Array.prototype.values`, are non-writable
+    } else if (value.prototype) value.prototype = undefined;
+  } catch (error) { /* empty */ }
   var state = enforceInternalState(value);
   if (!hasOwn(state, 'source')) {
     state.source = TEMPLATE.join(typeof name == 'string' ? name : '');
@@ -8558,7 +8574,8 @@ module.exports = (!$expm1
   // Tor Browser bug
   || $expm1(-2e-17) != -2e-17
 ) ? function expm1(x) {
-  return (x = +x) == 0 ? x : x > -1e-6 && x < 1e-6 ? x + x * x / 2 : exp(x) - 1;
+  var n = +x;
+  return n == 0 ? n : n > -1e-6 && n < 1e-6 ? n + n * n / 2 : exp(n) - 1;
 } : $expm1;
 
 
@@ -8587,8 +8604,9 @@ var roundTiesToEven = function (n) {
 // https://tc39.es/ecma262/#sec-math.fround
 // eslint-disable-next-line es-x/no-math-fround -- safe
 module.exports = Math.fround || function fround(x) {
-  var $abs = abs(x);
-  var $sign = sign(x);
+  var n = +x;
+  var $abs = abs(n);
+  var $sign = sign(n);
   var a, result;
   if ($abs < MIN32) return $sign * roundTiesToEven($abs / MIN32 / EPSILON32) * MIN32 * EPSILON32;
   a = (1 + EPSILON32 / EPSILON) * $abs;
@@ -8630,7 +8648,8 @@ var log = Math.log;
 // https://tc39.es/ecma262/#sec-math.log1p
 // eslint-disable-next-line es-x/no-math-log1p -- safe
 module.exports = Math.log1p || function log1p(x) {
-  return (x = +x) > -1e-8 && x < 1e-8 ? x - x * x / 2 : log(1 + x);
+  var n = +x;
+  return n > -1e-8 && n < 1e-8 ? n - n * n / 2 : log(1 + n);
 };
 
 
@@ -8669,8 +8688,29 @@ module.exports = Math.scale || function scale(x, inLow, inHigh, outLow, outHigh)
 // https://tc39.es/ecma262/#sec-math.sign
 // eslint-disable-next-line es-x/no-math-sign -- safe
 module.exports = Math.sign || function sign(x) {
+  var n = +x;
   // eslint-disable-next-line no-self-compare -- NaN check
-  return (x = +x) == 0 || x != x ? x : x < 0 ? -1 : 1;
+  return n == 0 || n != n ? n : n < 0 ? -1 : 1;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/internals/math-trunc.js":
+/*!******************************************************!*\
+  !*** ./node_modules/core-js/internals/math-trunc.js ***!
+  \******************************************************/
+/***/ ((module) => {
+
+var ceil = Math.ceil;
+var floor = Math.floor;
+
+// `Math.trunc` method
+// https://tc39.es/ecma262/#sec-math.trunc
+// eslint-disable-next-line es-x/no-math-trunc -- safe
+module.exports = Math.trunc || function trunc(x) {
+  var n = +x;
+  return (n > 0 ? floor : ceil)(n);
 };
 
 
@@ -10519,28 +10559,6 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./node_modules/core-js/internals/set-global.js":
-/*!******************************************************!*\
-  !*** ./node_modules/core-js/internals/set-global.js ***!
-  \******************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-var global = __webpack_require__(/*! ../internals/global */ "./node_modules/core-js/internals/global.js");
-
-// eslint-disable-next-line es-x/no-object-defineproperty -- safe
-var defineProperty = Object.defineProperty;
-
-module.exports = function (key, value) {
-  try {
-    defineProperty(global, key, { value: value, configurable: true, writable: true });
-  } catch (error) {
-    global[key] = value;
-  } return value;
-};
-
-
-/***/ }),
-
 /***/ "./node_modules/core-js/internals/set-species.js":
 /*!*******************************************************!*\
   !*** ./node_modules/core-js/internals/set-species.js ***!
@@ -10618,10 +10636,10 @@ module.exports = function (key) {
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var global = __webpack_require__(/*! ../internals/global */ "./node_modules/core-js/internals/global.js");
-var setGlobal = __webpack_require__(/*! ../internals/set-global */ "./node_modules/core-js/internals/set-global.js");
+var defineGlobalProperty = __webpack_require__(/*! ../internals/define-global-property */ "./node_modules/core-js/internals/define-global-property.js");
 
 var SHARED = '__core-js_shared__';
-var store = global[SHARED] || setGlobal(SHARED, {});
+var store = global[SHARED] || defineGlobalProperty(SHARED, {});
 
 module.exports = store;
 
@@ -10640,10 +10658,10 @@ var store = __webpack_require__(/*! ../internals/shared-store */ "./node_modules
 (module.exports = function (key, value) {
   return store[key] || (store[key] = value !== undefined ? value : {});
 })('versions', []).push({
-  version: '3.22.5',
+  version: '3.22.7',
   mode: IS_PURE ? 'pure' : 'global',
   copyright: '© 2014-2022 Denis Pushkarev (zloirock.ru)',
-  license: 'https://github.com/zloirock/core-js/blob/v3.22.5/LICENSE',
+  license: 'https://github.com/zloirock/core-js/blob/v3.22.7/LICENSE',
   source: 'https://github.com/zloirock/core-js'
 });
 
@@ -11369,17 +11387,16 @@ module.exports = function (it) {
 /*!******************************************************************!*\
   !*** ./node_modules/core-js/internals/to-integer-or-infinity.js ***!
   \******************************************************************/
-/***/ ((module) => {
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var ceil = Math.ceil;
-var floor = Math.floor;
+var trunc = __webpack_require__(/*! ../internals/math-trunc */ "./node_modules/core-js/internals/math-trunc.js");
 
 // `ToIntegerOrInfinity` abstract operation
 // https://tc39.es/ecma262/#sec-tointegerorinfinity
 module.exports = function (argument) {
   var number = +argument;
-  // eslint-disable-next-line no-self-compare -- safe
-  return number !== number || number === 0 ? 0 : (number > 0 ? floor : ceil)(number);
+  // eslint-disable-next-line no-self-compare -- NaN check
+  return number !== number || number === 0 ? 0 : trunc(number);
 };
 
 
@@ -14081,9 +14098,10 @@ var FORCED = !$acosh
 // https://tc39.es/ecma262/#sec-math.acosh
 $({ target: 'Math', stat: true, forced: FORCED }, {
   acosh: function acosh(x) {
-    return (x = +x) < 1 ? NaN : x > 94906265.62425156
-      ? log(x) + LN2
-      : log1p(x - 1 + sqrt(x - 1) * sqrt(x + 1));
+    var n = +x;
+    return n < 1 ? NaN : n > 94906265.62425156
+      ? log(n) + LN2
+      : log1p(n - 1 + sqrt(n - 1) * sqrt(n + 1));
   }
 });
 
@@ -14104,7 +14122,8 @@ var log = Math.log;
 var sqrt = Math.sqrt;
 
 function asinh(x) {
-  return !isFinite(x = +x) || x == 0 ? x : x < 0 ? -asinh(-x) : log(x + sqrt(x * x + 1));
+  var n = +x;
+  return !isFinite(n) || n == 0 ? n : n < 0 ? -asinh(-n) : log(n + sqrt(n * n + 1));
 }
 
 // `Math.asinh` method
@@ -14134,7 +14153,8 @@ var log = Math.log;
 // Tor Browser bug: Math.atanh(-0) -> 0
 $({ target: 'Math', stat: true, forced: !($atanh && 1 / $atanh(-0) < 0) }, {
   atanh: function atanh(x) {
-    return (x = +x) == 0 ? x : log((1 + x) / (1 - x)) / 2;
+    var n = +x;
+    return n == 0 ? n : log((1 + n) / (1 - n)) / 2;
   }
 });
 
@@ -14157,7 +14177,8 @@ var pow = Math.pow;
 // https://tc39.es/ecma262/#sec-math.cbrt
 $({ target: 'Math', stat: true }, {
   cbrt: function cbrt(x) {
-    return sign(x = +x) * pow(abs(x), 1 / 3);
+    var n = +x;
+    return sign(n) * pow(abs(n), 1 / 3);
   }
 });
 
@@ -14180,7 +14201,8 @@ var LOG2E = Math.LOG2E;
 // https://tc39.es/ecma262/#sec-math.clz32
 $({ target: 'Math', stat: true }, {
   clz32: function clz32(x) {
-    return (x >>>= 0) ? 31 - floor(log(x + 0.5) * LOG2E) : 32;
+    var n = x >>> 0;
+    return n ? 31 - floor(log(n + 0.5) * LOG2E) : 32;
   }
 });
 
@@ -14422,7 +14444,8 @@ var FORCED = fails(function () {
 // V8 near Chromium 38 has a problem with very small numbers
 $({ target: 'Math', stat: true, forced: FORCED }, {
   sinh: function sinh(x) {
-    return abs(x = +x) < 1 ? (expm1(x) - expm1(-x)) / 2 : (exp(x - 1) - exp(-x - 1)) * (E / 2);
+    var n = +x;
+    return abs(n) < 1 ? (expm1(n) - expm1(-n)) / 2 : (exp(n - 1) - exp(-n - 1)) * (E / 2);
   }
 });
 
@@ -14444,9 +14467,10 @@ var exp = Math.exp;
 // https://tc39.es/ecma262/#sec-math.tanh
 $({ target: 'Math', stat: true }, {
   tanh: function tanh(x) {
-    var a = expm1(x = +x);
-    var b = expm1(-x);
-    return a == Infinity ? 1 : b == Infinity ? -1 : (a - b) / (exp(x) + exp(-x));
+    var n = +x;
+    var a = expm1(n);
+    var b = expm1(-n);
+    return a == Infinity ? 1 : b == Infinity ? -1 : (a - b) / (exp(n) + exp(-n));
   }
 });
 
@@ -14475,16 +14499,12 @@ setToStringTag(Math, 'Math', true);
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 var $ = __webpack_require__(/*! ../internals/export */ "./node_modules/core-js/internals/export.js");
-
-var ceil = Math.ceil;
-var floor = Math.floor;
+var trunc = __webpack_require__(/*! ../internals/math-trunc */ "./node_modules/core-js/internals/math-trunc.js");
 
 // `Math.trunc` method
 // https://tc39.es/ecma262/#sec-math.trunc
 $({ target: 'Math', stat: true }, {
-  trunc: function trunc(it) {
-    return (it > 0 ? floor : ceil)(it);
-  }
+  trunc: trunc
 });
 
 
@@ -23055,7 +23075,9 @@ var $ = __webpack_require__(/*! ../internals/export */ "./node_modules/core-js/i
 // https://github.com/tc39/proposal-Math.signbit
 $({ target: 'Math', stat: true, forced: true }, {
   signbit: function signbit(x) {
-    return (x = +x) == x && x == 0 ? 1 / x == -Infinity : x < 0;
+    var n = +x;
+    // eslint-disable-next-line no-self-compare -- NaN check
+    return n == n && n == 0 ? 1 / n == -Infinity : n < 0;
   }
 });
 
@@ -25609,7 +25631,7 @@ var process = global.process;
 
 // `queueMicrotask` method
 // https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#dom-queuemicrotask
-$({ global: true, enumerable: true, noTargetGet: true }, {
+$({ global: true, enumerable: true, dontCallGetSet: true }, {
   queueMicrotask: function queueMicrotask(fn) {
     validateArgumentsLength(arguments.length, 1);
     aCallable(fn);
@@ -26547,7 +26569,7 @@ if (!USE_NATIVE_URL && isCallable(Headers)) {
   };
 
   if (isCallable(nativeFetch)) {
-    $({ global: true, enumerable: true, noTargetGet: true, forced: true }, {
+    $({ global: true, enumerable: true, dontCallGetSet: true, forced: true }, {
       fetch: function fetch(input /* , init */) {
         return nativeFetch(input, arguments.length > 1 ? wrapRequestOptions(arguments[1]) : {});
       }
@@ -26563,7 +26585,7 @@ if (!USE_NATIVE_URL && isCallable(Headers)) {
     RequestPrototype.constructor = RequestConstructor;
     RequestConstructor.prototype = RequestPrototype;
 
-    $({ global: true, constructor: true, noTargetGet: true, forced: true }, {
+    $({ global: true, constructor: true, dontCallGetSet: true, forced: true }, {
       Request: RequestConstructor
     });
   }
@@ -27676,10 +27698,10 @@ $({ target: 'URL', proto: true, enumerable: true }, {
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/css/styles.css":
-/*!*********************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/css/styles.css ***!
-  \*********************************************************************************************************/
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./css/styles.css":
+/*!*****************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./css/styles.css ***!
+  \*****************************************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -27687,9 +27709,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
 /* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
 // Imports
 
@@ -27698,7 +27720,7 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Arvo&family=Dancing+Script:wght@700&display=swap);"]);
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Arvo&family=Dancing+Script:wght@700&family=Poppins:wght@300&display=swap);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --gradient: linear-gradient(130deg, #ee6352, purple, #ee6352);\n}\n\nbody {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n  height: 100vh;\n  background-repeat: no-repeat;\n  background-image: var(--gradient);\n  background-size: 400%;\n  animation: bg-animation 14s infinite;\n}\n\n.hidden {\n  display: none;\n}\n\n@keyframes bg-animation {\n  0% {\n    background-position: left;\n  }\n  50% {\n    background-position: right;\n  }\n  100% {\n    background-position: left;\n  }\n}\n.main {\n  height: 100%;\n  display: flex;\n  /* display: none; */\n}\n\n.left,\n.right {\n  width: 50%;\n  height: 100%;\n  /* background-color: red; */\n}\n\n.left {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n}\n\nh1,\nh2 {\n  line-height: 90px;\n}\n\n.tagline h2 {\n  margin: 0;\n  font-family: \"Poppins\";\n  font-weight: bold;\n  font-size: 95px;\n  color: #fff;\n}\n\n.intro {\n  margin-top: -200px;\n}\n\n.auth h1 {\n  margin: 0;\n  font-family: \"Poppins\";\n  font-weight: bold;\n  font-size: 95px;\n  color: #fff;\n}\n\n.auth h1 > span {\n  margin-left: -215px;\n  letter-spacing: 42px;\n}\n\n.message p {\n  margin-left: -37px;\n  font-family: \"Poppins\";\n  font-weight: medium;\n  font-size: 21px;\n  color: #fff;\n}\n\n.message span {\n  font-family: \"Dancing Script\", cursive;\n  /* font-family: 'Inspiration', cursive; */\n  font-weight: bold;\n  font-size: 55px;\n}\n\n.right {\n  width: 50%;\n  height: 100%;\n  /* background-color: red; */\n  display: flex;\n  /* flex-direction: column; */\n  align-items: center;\n  justify-content: center;\n}\n\n.wrapper {\n  height: 100%;\n  display: flex;\n  justify-self: center;\n  align-items: center;\n  mask-image: linear-gradient(-75deg, rgba(0, 0, 0, 0.6) 30%, #000 50%, rgba(0, 0, 0, 0.6) 70%);\n  -webkit-mask-image: linear-gradient(-75deg, rgba(0, 0, 0, 0.6) 30%, #000 50%, rgba(0, 0, 0, 0.6) 70%);\n  -webkit-mask-size: 200%;\n  mask-size: 200%;\n  animation: shine 3s linear infinite;\n}\n\n.form {\n  height: 700px;\n  width: 602px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  gap: 10px;\n  background: rgba(221, 212, 212, 0.389);\n  border-radius: 16px;\n  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);\n  backdrop-filter: blur(2.7px);\n  -webkit-backdrop-filter: blur(2.7px);\n  border: 1px solid rgba(200, 188, 188, 0.3);\n}\n\n.form > input[type=text] {\n  padding: 10px 15px;\n  margin: 5px 0;\n  box-sizing: border-box;\n}\n\n.form > input[type=text]:focus {\n  /* outline-color: #ee6352; */\n  outline-color: hsla(7deg, 82%, 63%, 0.75);\n  /* outline: none; */\n}\n\n.names {\n  width: 86%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 10px;\n}\n\n.names > .first,\n.last {\n  /* height: 100px;\n  width: 500px; */\n  /* width: 50%; */\n  color: white;\n  font-weight: medium;\n  font-size: 22px;\n  font-family: Poppins;\n}\n\ninput {\n  border: none;\n}\n\n.names input[type=text] {\n  width: 250px;\n  height: 45px;\n  border-radius: 5px;\n}\n\n.passwords {\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  gap: 5px;\n}\n\n.password1,\n.password2 {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  justify-content: flex-start;\n}\n\n.passwords > .password1,\n.password2 {\n  color: white;\n  font-weight: medium;\n  font-size: 22px;\n  font-family: Poppins;\n}\n\n.passwords input[type=text] {\n  width: 514px;\n  height: 45px;\n  border-radius: 5px;\n}\n\n.ag {\n  width: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 33px;\n}\n\n.ag > .age,\n.gender {\n  color: white;\n  font-weight: medium;\n  font-size: 22px;\n  font-family: Poppins;\n}\n\n.age {\n  display: flex;\n  flex-direction: column;\n  align-items: start;\n  justify-content: center;\n}\n\n.ag input[type=text] {\n  width: 240px;\n  height: 45px;\n  border-radius: 5px;\n}\n\nselect {\n  border: none;\n  background: white;\n}\n\n#gender {\n  font-family: poppins;\n  font-size: 18px;\n}\n\nselect > option {\n  font-size: 18px;\n}\n\n.ag select {\n  width: 240px;\n  height: 45px;\n  border-radius: 5px;\n}\n\ninput[type=text] {\n  font-size: 25px;\n  font-weight: 300px;\n}\n\n.info {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\n\n.mobile,\n.email {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  justify-content: flex-start;\n}\n\n.info > .mobile,\n.email {\n  color: white;\n  font-weight: medium;\n  font-size: 22px;\n  font-family: Poppins;\n}\n\n.info input[type=text] {\n  width: 514px;\n  height: 45px;\n  border-radius: 5px;\n}\n\n.submit > button {\n  margin-top: 20px;\n  width: 150px;\n  height: 40px;\n  color: #fff;\n  letter-spacing: 2px;\n  border: 1px solid rgba(255, 255, 255, 0.85);\n  border-radius: 5px;\n  font-size: 17px;\n  background-color: rgba(255, 255, 255, 0.24);\n  transition: background-image 5s ease-in;\n}\n\n.submit > button:hover {\n  cursor: pointer;\n  background-image: var(--gradient);\n  background-size: 200%;\n  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;\n}\n\n@keyframes shine {\n  from {\n    -webkit-mask-position: 150%;\n  }\n  to {\n    -webkit-mask-position: -50%;\n  }\n}\n.home {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  height: 100vh;\n}\n\n.home {\n  font-family: Poppins;\n  font-weight: bold;\n  font-size: 65px;\n  letter-spacing: 8px;\n  color: #fff;\n}\n\n.tagline > p > span {\n  font-family: \"Dancing Script\", cursive;\n  font-size: 100px;\n}\n\n.tagline > p {\n  margin: 0;\n}\n\n.bttns {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 30px;\n}\n\n.sign {\n  width: 155px;\n  height: 45px;\n  font-size: 20px;\n  /* color: white; */\n  font-weight: bold;\n  outline: none;\n  border: none;\n  border-radius: 5px;\n  letter-spacing: 1.5px;\n  transition: box-shadow 0.6s ease, background 0.6s ease;\n  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;\n}\n\n.bttns > button:hover {\n  cursor: pointer;\n  background: transparent;\n  color: white;\n  border: 1.95px solid white;\n}\n\n.fadeinTop {\n  animation: fadeinTop 1s ease-in-out;\n}\n\n.fadeinLeft {\n  animation: fadeinLeft 1s ease-in-out;\n}\n\n.fadeinRight {\n  animation: fadeinRight 1s ease-in-out;\n}\n\n@keyframes fadeinTop {\n  0% {\n    opacity: 0;\n    transform: translateY(-50px);\n  }\n  50% {\n    opacity: 0.5;\n  }\n  100% {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n@keyframes fadeinLeft {\n  0% {\n    opacity: 0;\n    transform: translateX(-50px);\n  }\n  50% {\n    opacity: 0.5;\n  }\n  100% {\n    opacity: 1;\n    transform: translateX(0);\n  }\n}\n@keyframes fadeinRight {\n  0% {\n    opacity: 0;\n    transform: translateX(50px);\n  }\n  50% {\n    opacity: 0.5;\n  }\n  100% {\n    opacity: 1;\n    transform: translateX(0);\n  }\n}\n#alertBox {\n  height: 100%;\n  width: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.alertMsg {\n  width: 615px;\n  height: 270px;\n  background-color: #fff;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  border-radius: 5px;\n  border-color: purple;\n}\n\n.alertMsg > p {\n  font-family: poppins;\n  font-weight: bold;\n  padding: 10px;\n}\n\n.login {\n  height: 100%;\n  width: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.loginBox {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  gap: 15px;\n}\n\n.loginBox > p {\n  margin: 0;\n  /* margin-left: 100px; */\n  font-size: 20px;\n  color: white;\n  font-weight: bold;\n  letter-spacing: 1.5px;\n  font-family: poppins;\n}\n\n.inp-boxes {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  gap: 10px;\n}\n\n.logEmail,\n.pass {\n  border-radius: 4px;\n}\n\n.inp-boxes > input[type=text] {\n  padding: 10px 15px;\n  margin: 4px 0;\n  box-sizing: border-box;\n  background-color: #fff;\n  /* background: rgba(255, 255, 255, 0.2);\n  border-radius: 4px;\n  backdrop-filter: blur(4px);\n  border: 1px solid rgba(255, 255, 255, 0.3);\n  color: white; */\n  outline: none;\n}\n\n.loginBox > button {\n  all: unset;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  background-color: transparent;\n  font-size: 18px;\n  font-family: poppins;\n  letter-spacing: 2px;\n  font-weight: bold;\n  color: white;\n  width: 120px;\n  height: 35px;\n  /* border: 1px solid white; */\n  border-radius: 4px;\n  cursor: pointer;\n  border: none;\n  background: rgba(255, 255, 255, 0.2);\n  border-radius: 4px;\n  backdrop-filter: blur(4px);\n  border: 1px solid rgba(255, 255, 255, 0.3);\n  transition: background-color 0.4s ease;\n}\n\n.loginBox > button:hover {\n  background-color: transparent;\n}\n\n.loginBox > p > span {\n  font-family: \"Dancing Script\", cursive;\n  /* font-family: 'Inspiration', cursive; */\n  font-weight: bold;\n  font-size: 30px;\n}\n\n/* ============================== ABOUT PAGE =================================== */\n.container {\n  height: 100%;\n  width: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.about {\n  width: 1350px;\n  height: 700px;\n  background-color: #dde1e7;\n  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: space-evenly;\n}\n\n.welcome,\n.details {\n  height: 200px;\n  width: 100%;\n  /* margin-top: 4px; */\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n}\n\n.welcome > h2 {\n  font-family: poppins;\n  font-weight: 400;\n  font-size: 30px;\n}\n\n.welcome > h2 > span {\n  font-family: \"Dancing Script\", cursive;\n  letter-spacing: 5px;\n  font-weight: 800;\n}\n\n.welcomeText {\n  font-family: poppins;\n  font-weight: 400;\n  font-size: 25px;\n}\n\n.userName {\n  font-family: poppins;\n  font-size: 30px;\n  letter-spacing: 3px;\n  font-weight: 600;\n}\n\n.nameBox,\n.emailBox,\n.mobileBox {\n  width: 100%;\n  height: 100px;\n  display: flex;\n  align-items: center;\n  justify-content: space-around;\n  font-family: poppins;\n  font-weight: bold;\n}\n\n.nameBox > p {\n  width: 400px;\n}\n\n.emailBox > p {\n  width: 400px;\n}\n\n.mobileBox > p {\n  width: 400px;\n}\n\n.actionBtns {\n  width: 100%;\n  height: 100px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.actionBtns > button {\n  width: 150px;\n  height: 40px;\n  border: 0px solid transparent;\n  border-radius: 5px;\n  color: purple;\n  font-weight: 500;\n  letter-spacing: 3px;\n  text-transform: uppercase;\n  font-size: 18px;\n  /* background-color: purple; */\n  background-color: transparent;\n  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;\n  /* box-shadow: -3px -3px 7px #ffffff73, 3px 3px 5px #6d676773; */\n  transition: all 0.3s ease-in-out;\n}\n\n.actionBtns > button:hover {\n  background-color: purple;\n  color: white;\n  cursor: pointer;\n}\n\n/* =========================== LOADER ANIMATION ====================================== */\nbody {\n  margin: 0;\n  height: 100vh;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  /* background: linear-gradient(to right, silver, teal); */\n  background: var(--gradient);\n}\n\n.loader {\n  width: 16em;\n  height: 8em;\n  position: relative;\n  overflow: hidden;\n}\n\n.loader::before,\n.loader::after {\n  content: \"\";\n  position: absolute;\n  bottom: 0;\n}\n\n.loader::before {\n  width: inherit;\n  height: 0.2em;\n  background-color: hsl(0deg, 0%, 85%);\n}\n\n.loader::after {\n  box-sizing: border-box;\n  width: 50%;\n  height: inherit;\n  border: 0.2em solid hsl(0deg, 0%, 85%);\n  border-radius: 50%;\n  left: 25%;\n}\n\n.loader span {\n  position: absolute;\n  width: 5%;\n  height: 10%;\n  background-color: white;\n  border-radius: 50%;\n  bottom: 0.2em;\n  left: -5%;\n  animation: 2s linear infinite;\n  transform-origin: 50% -3em;\n  animation-name: run, rotating;\n}\n\n.loader span:nth-child(2) {\n  animation-delay: 0.075s;\n}\n\n.loader span:nth-child(3) {\n  animation-delay: 0.15s;\n}\n\n@keyframes run {\n  0% {\n    left: -5%;\n  }\n  10%, 60% {\n    left: 47.5%;\n  }\n  70%, 100% {\n    left: 100%;\n  }\n}\n@keyframes rotating {\n  0%, 10% {\n    transform: rotate(0deg);\n  }\n  60%, 100% {\n    transform: rotate(-1turn);\n  }\n}", "",{"version":3,"sources":["webpack://./src/css/styles.css"],"names":[],"mappings":"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","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Arvo&family=Dancing+Script:wght@700&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Arvo&family=Dancing+Script:wght@700&family=Poppins:wght@300&display=swap');\n\n:root {\n  --gradient: linear-gradient(130deg, #ee6352, purple, #ee6352);\n}\n\nbody {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n\n  height: 100vh;\n  background-repeat: no-repeat;\n\n  background-image: var(--gradient);\n  background-size: 400%;\n  animation: bg-animation 14s infinite;\n}\n\n.hidden {\n  display: none;\n}\n\n@keyframes bg-animation {\n  0% {\n    background-position: left;\n  }\n  50% {\n    background-position: right;\n  }\n  100% {\n    background-position: left;\n  }\n}\n\n.main {\n  height: 100%;\n  display: flex;\n\n  /* display: none; */\n}\n\n.left,\n.right {\n  width: 50%;\n  height: 100%;\n  /* background-color: red; */\n}\n\n.left {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n}\n\nh1,\nh2 {\n  line-height: 90px;\n}\n\n.tagline h2 {\n  margin: 0;\n\n  font-family: 'Poppins';\n  font-weight: bold;\n  font-size: 95px;\n  color: #fff;\n}\n\n.intro {\n  margin-top: -200px;\n}\n.auth h1 {\n  margin: 0;\n\n  font-family: 'Poppins';\n  font-weight: bold;\n  font-size: 95px;\n  color: #fff;\n}\n\n.auth h1 > span {\n  margin-left: -215px;\n  letter-spacing: 42px;\n}\n\n.message p {\n  margin-left: -37px;\n\n  font-family: 'Poppins';\n  font-weight: medium;\n  font-size: 21px;\n  color: #fff;\n}\n\n.message span {\n  font-family: 'Dancing Script', cursive;\n  /* font-family: 'Inspiration', cursive; */\n  font-weight: bold;\n  font-size: 55px;\n}\n\n.right {\n  width: 50%;\n  height: 100%;\n  /* background-color: red; */\n\n  display: flex;\n  /* flex-direction: column; */\n  align-items: center;\n  justify-content: center;\n}\n\n.wrapper {\n  height: 100%;\n  display: flex;\n  justify-self: center;\n  align-items: center;\n\n  mask-image: linear-gradient(\n    -75deg,\n    rgba(0, 0, 0, 0.6) 30%,\n    #000 50%,\n    rgba(0, 0, 0, 0.6) 70%\n  );\n  -webkit-mask-image: linear-gradient(\n    -75deg,\n    rgba(0, 0, 0, 0.6) 30%,\n    #000 50%,\n    rgba(0, 0, 0, 0.6) 70%\n  );\n  -webkit-mask-size: 200%;\n  mask-size: 200%;\n  animation: shine 3s linear infinite;\n}\n\n.form {\n  height: 700px;\n  width: 602px;\n\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n\n  gap: 10px;\n\n  background: rgba(221, 212, 212, 0.389);\n  border-radius: 16px;\n  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);\n  backdrop-filter: blur(2.7px);\n  -webkit-backdrop-filter: blur(2.7px);\n  border: 1px solid rgba(200, 188, 188, 0.3);\n}\n\n.form > input[type='text'] {\n  padding: 10px 15px;\n  margin: 5px 0;\n  box-sizing: border-box;\n}\n\n.form > input[type='text']:focus {\n  /* outline-color: #ee6352; */\n  outline-color: hsla(7, 82%, 63%, 0.75);\n  /* outline: none; */\n}\n\n.names {\n  width: 86%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n\n  gap: 10px;\n}\n.names > .first,\n.last {\n  /* height: 100px;\n  width: 500px; */\n  /* width: 50%; */\n  color: white;\n  font-weight: medium;\n  font-size: 22px;\n  font-family: Poppins;\n}\n\ninput {\n  border: none;\n}\n.names input[type='text'] {\n  width: 250px;\n  height: 45px;\n  border-radius: 5px;\n}\n\n.passwords {\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n\n  gap: 5px;\n}\n\n.password1,\n.password2 {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  justify-content: flex-start;\n}\n\n.passwords > .password1,\n.password2 {\n  color: white;\n  font-weight: medium;\n  font-size: 22px;\n  font-family: Poppins;\n}\n\n.passwords input[type='text'] {\n  width: 514px;\n  height: 45px;\n  border-radius: 5px;\n}\n\n.ag {\n  width: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n\n  gap: 33px;\n}\n\n.ag > .age,\n.gender {\n  color: white;\n  font-weight: medium;\n  font-size: 22px;\n  font-family: Poppins;\n}\n\n.age {\n  display: flex;\n  flex-direction: column;\n  align-items: start;\n  justify-content: center;\n}\n\n.ag input[type='text'] {\n  width: 240px;\n  height: 45px;\n  border-radius: 5px;\n}\nselect {\n  border: none;\n  background: white;\n}\n#gender {\n  font-family: poppins;\n  font-size: 18px;\n}\nselect > option {\n  font-size: 18px;\n}\n.ag select {\n  width: 240px;\n  height: 45px;\n  border-radius: 5px;\n}\n\ninput[type='text'] {\n  font-size: 25px;\n  font-weight: 300px;\n}\n\n.info {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\n\n.mobile,\n.email {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  justify-content: flex-start;\n}\n\n.info > .mobile,\n.email {\n  color: white;\n  font-weight: medium;\n  font-size: 22px;\n  font-family: Poppins;\n}\n\n.info input[type='text'] {\n  width: 514px;\n  height: 45px;\n  border-radius: 5px;\n}\n.submit > button {\n  margin-top: 20px;\n  width: 150px;\n  height: 40px;\n\n  color: #fff;\n  letter-spacing: 2px;\n  border: 1px solid rgba(255, 255, 255, 0.85);\n  border-radius: 5px;\n  font-size: 17px;\n\n  background-color: rgba(255, 255, 255, 0.24);\n\n  transition: background-image 5s ease-in;\n}\n\n.submit > button:hover {\n  cursor: pointer;\n  background-image: var(--gradient);\n  background-size: 200%;\n  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,\n    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;\n}\n\n@keyframes shine {\n  from {\n    -webkit-mask-position: 150%;\n  }\n  to {\n    -webkit-mask-position: -50%;\n  }\n}\n\n.home {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n\n  height: 100vh;\n}\n\n.home {\n  font-family: Poppins;\n  font-weight: bold;\n  font-size: 65px;\n  letter-spacing: 8px;\n  color: #fff;\n}\n.tagline > p > span {\n  font-family: 'Dancing Script', cursive;\n  font-size: 100px;\n}\n\n.tagline > p {\n  margin: 0;\n}\n\n.bttns {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 30px;\n}\n\n.sign {\n  width: 155px;\n  height: 45px;\n\n  font-size: 20px;\n  /* color: white; */\n  font-weight: bold;\n\n  outline: none;\n  border: none;\n  border-radius: 5px;\n  letter-spacing: 1.5px;\n\n  transition: box-shadow 0.6s ease, background 0.6s ease;\n  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,\n    rgba(0, 0, 0, 0.22) 0px 10px 10px;\n}\n\n.bttns > button:hover {\n  cursor: pointer;\n  background: transparent;\n  color: white;\n  border: 1.95px solid white;\n}\n\n.fadeinTop {\n  animation: fadeinTop 1s ease-in-out;\n}\n.fadeinLeft {\n  animation: fadeinLeft 1s ease-in-out;\n}\n.fadeinRight {\n  animation: fadeinRight 1s ease-in-out;\n}\n\n@keyframes fadeinTop {\n  0% {\n    opacity: 0;\n    transform: translateY(-50px);\n  }\n  50% {\n    opacity: 0.5;\n  }\n  100% {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n@keyframes fadeinLeft {\n  0% {\n    opacity: 0;\n    transform: translateX(-50px);\n  }\n  50% {\n    opacity: 0.5;\n  }\n  100% {\n    opacity: 1;\n    transform: translateX(0);\n  }\n}\n\n@keyframes fadeinRight {\n  0% {\n    opacity: 0;\n    transform: translateX(50px);\n  }\n  50% {\n    opacity: 0.5;\n  }\n  100% {\n    opacity: 1;\n    transform: translateX(0);\n  }\n}\n\n#alertBox {\n  height: 100%;\n  width: 100%;\n\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.alertMsg {\n  width: 615px;\n  height: 270px;\n  background-color: #fff;\n\n  display: flex;\n  justify-content: center;\n  align-items: center;\n\n  border-radius: 5px;\n  border-color: purple;\n}\n\n.alertMsg > p {\n  font-family: poppins;\n  font-weight: bold;\n  padding: 10px;\n}\n\n.login {\n  height: 100%;\n  width: 100%;\n\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.loginBox {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n\n  gap: 15px;\n}\n\n.loginBox > p {\n  margin: 0;\n  /* margin-left: 100px; */\n\n  font-size: 20px;\n  color: white;\n  font-weight: bold;\n  letter-spacing: 1.5px;\n  font-family: poppins;\n}\n\n.inp-boxes {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n\n  gap: 10px;\n}\n\n.logEmail,\n.pass {\n  border-radius: 4px;\n}\n\n.inp-boxes > input[type='text'] {\n  padding: 10px 15px;\n  margin: 4px 0;\n  box-sizing: border-box;\n\n  background-color: #fff;\n  /* background: rgba(255, 255, 255, 0.2);\n  border-radius: 4px;\n  backdrop-filter: blur(4px);\n  border: 1px solid rgba(255, 255, 255, 0.3);\n  color: white; */\n\n  outline: none;\n}\n\n.loginBox > button {\n  all: unset;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n\n  background-color: transparent;\n  font-size: 18px;\n  font-family: poppins;\n  letter-spacing: 2px;\n  font-weight: bold;\n  color: white;\n\n  width: 120px;\n  height: 35px;\n  /* border: 1px solid white; */\n  border-radius: 4px;\n\n  cursor: pointer;\n  border: none;\n  background: rgba(255, 255, 255, 0.2);\n  border-radius: 4px;\n  backdrop-filter: blur(4px);\n  border: 1px solid rgba(255, 255, 255, 0.3);\n\n  transition: background-color 0.4s ease;\n}\n\n.loginBox > button:hover {\n  background-color: transparent;\n}\n.loginBox > p > span {\n  font-family: 'Dancing Script', cursive;\n  /* font-family: 'Inspiration', cursive; */\n  font-weight: bold;\n  font-size: 30px;\n}\n\n/* ============================== ABOUT PAGE =================================== */\n\n.container {\n  height: 100%;\n  width: 100%;\n\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.about {\n  width: 1350px;\n  height: 700px;\n\n  background-color: #dde1e7;\n\n  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;\n\n  display: flex;\n\n  flex-direction: column;\n  align-items: center;\n  justify-content: space-evenly;\n}\n\n.welcome,\n.details {\n  height: 200px;\n  width: 100%;\n\n  /* margin-top: 4px; */\n\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n}\n\n.welcome > h2 {\n  font-family: poppins;\n  font-weight: 400;\n  font-size: 30px;\n}\n\n.welcome > h2 > span {\n  font-family: 'Dancing Script', cursive;\n  letter-spacing: 5px;\n  font-weight: 800;\n}\n\n.welcomeText {\n  font-family: poppins;\n  font-weight: 400;\n  font-size: 25px;\n}\n\n.userName {\n  font-family: poppins;\n  font-size: 30px;\n  letter-spacing: 3px;\n  font-weight: 600;\n}\n\n.nameBox,\n.emailBox,\n.mobileBox {\n  width: 100%;\n  height: 100px;\n\n  display: flex;\n  align-items: center;\n  justify-content: space-around;\n\n  font-family: poppins;\n  font-weight: bold;\n}\n\n.nameBox > p {\n  width: 400px;\n}\n.emailBox > p {\n  width: 400px;\n}\n.mobileBox > p {\n  width: 400px;\n}\n\n.actionBtns {\n  width: 100%;\n  height: 100px;\n\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.actionBtns > button {\n  width: 150px;\n  height: 40px;\n\n  border: 0px solid transparent;\n  border-radius: 5px;\n\n  color: purple;\n  font-weight: 500;\n  letter-spacing: 3px;\n  text-transform: uppercase;\n  font-size: 18px;\n  /* background-color: purple; */\n  background-color: transparent;\n\n  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;\n  /* box-shadow: -3px -3px 7px #ffffff73, 3px 3px 5px #6d676773; */\n\n  transition: all 0.3s ease-in-out;\n}\n\n.actionBtns > button:hover {\n  background-color: purple;\n  color: white;\n  cursor: pointer;\n}\n\n/* =========================== LOADER ANIMATION ====================================== */\n\nbody {\n  margin: 0;\n  height: 100vh;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  /* background: linear-gradient(to right, silver, teal); */\n  background: var(--gradient);\n}\n\n.loader {\n  width: 16em;\n  height: 8em;\n  position: relative;\n  overflow: hidden;\n}\n\n.loader::before,\n.loader::after {\n  content: '';\n  position: absolute;\n  bottom: 0;\n}\n\n.loader::before {\n  width: inherit;\n  height: 0.2em;\n  background-color: hsla(0, 0%, 85%);\n}\n\n.loader::after {\n  box-sizing: border-box;\n  width: 50%;\n  height: inherit;\n  border: 0.2em solid hsla(0, 0%, 85%);\n  border-radius: 50%;\n  left: 25%;\n}\n\n.loader span {\n  position: absolute;\n  width: 5%;\n  height: 10%;\n  background-color: white;\n  border-radius: 50%;\n  bottom: 0.2em;\n  left: -5%;\n  animation: 2s linear infinite;\n  transform-origin: 50% -3em;\n  animation-name: run, rotating;\n}\n\n.loader span:nth-child(2) {\n  animation-delay: 0.075s;\n}\n.loader span:nth-child(3) {\n  animation-delay: 0.15s;\n}\n\n@keyframes run {\n  0% {\n    left: -5%;\n  }\n  10%,\n  60% {\n    left: calc((100% - 5%) / 2);\n  }\n  70%,\n  100% {\n    left: 100%;\n  }\n}\n\n@keyframes rotating {\n  0%,\n  10% {\n    transform: rotate(0deg);\n  }\n  60%,\n  100% {\n    transform: rotate(-1turn);\n  }\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --gradient: linear-gradient(130deg, #ee6352, purple, #ee6352);\n}\n\nbody {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n  height: 100vh;\n  background-repeat: no-repeat;\n  background-image: var(--gradient);\n  background-size: 400%;\n  animation: bg-animation 14s infinite;\n}\n\n.hidden {\n  display: none;\n}\n\n@keyframes bg-animation {\n  0% {\n    background-position: left;\n  }\n  50% {\n    background-position: right;\n  }\n  100% {\n    background-position: left;\n  }\n}\n.main {\n  height: 100%;\n  display: flex;\n  /* display: none; */\n}\n\n.left,\n.right {\n  width: 50%;\n  height: 100%;\n  /* background-color: red; */\n}\n\n.left {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n}\n\nh1,\nh2 {\n  line-height: 90px;\n}\n\n.tagline h2 {\n  margin: 0;\n  font-family: \"Poppins\";\n  font-weight: bold;\n  font-size: 95px;\n  color: #fff;\n}\n\n.intro {\n  margin-top: -200px;\n}\n\n.auth h1 {\n  margin: 0;\n  font-family: \"Poppins\";\n  font-weight: bold;\n  font-size: 95px;\n  color: #fff;\n}\n\n.auth h1 > span {\n  margin-left: -215px;\n  letter-spacing: 42px;\n}\n\n.message p {\n  margin-left: -37px;\n  font-family: \"Poppins\";\n  font-weight: medium;\n  font-size: 21px;\n  color: #fff;\n}\n\n.message span {\n  font-family: \"Dancing Script\", cursive;\n  /* font-family: 'Inspiration', cursive; */\n  font-weight: bold;\n  font-size: 55px;\n}\n\n.right {\n  width: 50%;\n  height: 100%;\n  /* background-color: red; */\n  display: flex;\n  /* flex-direction: column; */\n  align-items: center;\n  justify-content: center;\n}\n\n.wrapper {\n  height: 100%;\n  display: flex;\n  justify-self: center;\n  align-items: center;\n  mask-image: linear-gradient(-75deg, rgba(0, 0, 0, 0.6) 30%, #000 50%, rgba(0, 0, 0, 0.6) 70%);\n  -webkit-mask-image: linear-gradient(-75deg, rgba(0, 0, 0, 0.6) 30%, #000 50%, rgba(0, 0, 0, 0.6) 70%);\n  -webkit-mask-size: 200%;\n  mask-size: 200%;\n  animation: shine 3s linear infinite;\n}\n\n.form {\n  height: 700px;\n  width: 602px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  gap: 10px;\n  background: rgba(221, 212, 212, 0.389);\n  border-radius: 16px;\n  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);\n  backdrop-filter: blur(2.7px);\n  -webkit-backdrop-filter: blur(2.7px);\n  border: 1px solid rgba(200, 188, 188, 0.3);\n}\n\n.form > input[type=text] {\n  padding: 10px 15px;\n  margin: 5px 0;\n  box-sizing: border-box;\n}\n\n.form > input[type=text]:focus {\n  /* outline-color: #ee6352; */\n  outline-color: hsla(7deg, 82%, 63%, 0.75);\n  /* outline: none; */\n}\n\n.names {\n  width: 86%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 10px;\n}\n\n.names > .first,\n.last {\n  /* height: 100px;\n  width: 500px; */\n  /* width: 50%; */\n  color: white;\n  font-weight: medium;\n  font-size: 22px;\n  font-family: Poppins;\n}\n\ninput {\n  border: none;\n}\n\n.names input[type=text] {\n  width: 250px;\n  height: 45px;\n  border-radius: 5px;\n}\n\n.passwords {\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  gap: 5px;\n}\n\n.password1,\n.password2 {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  justify-content: flex-start;\n}\n\n.passwords > .password1,\n.password2 {\n  color: white;\n  font-weight: medium;\n  font-size: 22px;\n  font-family: Poppins;\n}\n\n.passwords input[type=text] {\n  width: 514px;\n  height: 45px;\n  border-radius: 5px;\n}\n\n.ag {\n  width: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 33px;\n}\n\n.ag > .age,\n.gender {\n  color: white;\n  font-weight: medium;\n  font-size: 22px;\n  font-family: Poppins;\n}\n\n.age {\n  display: flex;\n  flex-direction: column;\n  align-items: start;\n  justify-content: center;\n}\n\n.ag input[type=text] {\n  width: 240px;\n  height: 45px;\n  border-radius: 5px;\n}\n\nselect {\n  border: none;\n  background: white;\n}\n\n#gender {\n  font-family: poppins;\n  font-size: 18px;\n}\n\nselect > option {\n  font-size: 18px;\n}\n\n.ag select {\n  width: 240px;\n  height: 45px;\n  border-radius: 5px;\n}\n\ninput[type=text] {\n  font-size: 25px;\n  font-weight: 300px;\n}\n\n.info {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\n\n.mobile,\n.email {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  justify-content: flex-start;\n}\n\n.info > .mobile,\n.email {\n  color: white;\n  font-weight: medium;\n  font-size: 22px;\n  font-family: Poppins;\n}\n\n.info input[type=text] {\n  width: 514px;\n  height: 45px;\n  border-radius: 5px;\n}\n\n.submit > button {\n  margin-top: 20px;\n  width: 150px;\n  height: 40px;\n  color: #fff;\n  letter-spacing: 2px;\n  border: 1px solid rgba(255, 255, 255, 0.85);\n  border-radius: 5px;\n  font-size: 17px;\n  background-color: rgba(255, 255, 255, 0.24);\n  transition: background-image 5s ease-in;\n}\n\n.submit > button:hover {\n  cursor: pointer;\n  background-image: var(--gradient);\n  background-size: 200%;\n  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;\n}\n\n@keyframes shine {\n  from {\n    -webkit-mask-position: 150%;\n  }\n  to {\n    -webkit-mask-position: -50%;\n  }\n}\n.home {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  height: 100vh;\n}\n\n.home {\n  font-family: Poppins;\n  font-weight: bold;\n  font-size: 65px;\n  letter-spacing: 8px;\n  color: #fff;\n}\n\n.tagline > p > span {\n  font-family: \"Dancing Script\", cursive;\n  font-size: 100px;\n}\n\n.tagline > p {\n  margin: 0;\n}\n\n.bttns {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 30px;\n}\n\n.sign {\n  width: 155px;\n  height: 45px;\n  font-size: 20px;\n  /* color: white; */\n  font-weight: bold;\n  outline: none;\n  border: none;\n  border-radius: 5px;\n  letter-spacing: 1.5px;\n  transition: box-shadow 0.6s ease, background 0.6s ease;\n  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;\n}\n\n.bttns > button:hover {\n  cursor: pointer;\n  background: transparent;\n  color: white;\n  border: 1.95px solid white;\n}\n\n.fadeinTop {\n  animation: fadeinTop 1s ease-in-out;\n}\n\n.fadeinLeft {\n  animation: fadeinLeft 1s ease-in-out;\n}\n\n.fadeinRight {\n  animation: fadeinRight 1s ease-in-out;\n}\n\n@keyframes fadeinTop {\n  0% {\n    opacity: 0;\n    transform: translateY(-50px);\n  }\n  50% {\n    opacity: 0.5;\n  }\n  100% {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n@keyframes fadeinLeft {\n  0% {\n    opacity: 0;\n    transform: translateX(-50px);\n  }\n  50% {\n    opacity: 0.5;\n  }\n  100% {\n    opacity: 1;\n    transform: translateX(0);\n  }\n}\n@keyframes fadeinRight {\n  0% {\n    opacity: 0;\n    transform: translateX(50px);\n  }\n  50% {\n    opacity: 0.5;\n  }\n  100% {\n    opacity: 1;\n    transform: translateX(0);\n  }\n}\n#alertBox {\n  height: 100%;\n  width: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.alertMsg {\n  width: 615px;\n  height: 270px;\n  background-color: #fff;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  border-radius: 5px;\n  border-color: purple;\n}\n\n.alertMsg > p {\n  font-family: poppins;\n  font-weight: bold;\n  padding: 10px;\n}\n\n.login {\n  height: 100%;\n  width: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.loginBox {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  gap: 15px;\n}\n\n.loginBox > p {\n  margin: 0;\n  /* margin-left: 100px; */\n  font-size: 20px;\n  color: white;\n  font-weight: bold;\n  letter-spacing: 1.5px;\n  font-family: poppins;\n}\n\n.inp-boxes {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  gap: 10px;\n}\n\n.logEmail,\n.pass {\n  border-radius: 4px;\n}\n\n.inp-boxes > input[type=text] {\n  padding: 10px 15px;\n  margin: 4px 0;\n  box-sizing: border-box;\n  background-color: #fff;\n  /* background: rgba(255, 255, 255, 0.2);\n  border-radius: 4px;\n  backdrop-filter: blur(4px);\n  border: 1px solid rgba(255, 255, 255, 0.3);\n  color: white; */\n  outline: none;\n}\n\n.loginBox > button {\n  all: unset;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  background-color: transparent;\n  font-size: 18px;\n  font-family: poppins;\n  letter-spacing: 2px;\n  font-weight: bold;\n  color: white;\n  width: 120px;\n  height: 35px;\n  /* border: 1px solid white; */\n  border-radius: 4px;\n  cursor: pointer;\n  border: none;\n  background: rgba(255, 255, 255, 0.2);\n  border-radius: 4px;\n  backdrop-filter: blur(4px);\n  border: 1px solid rgba(255, 255, 255, 0.3);\n  transition: background-color 0.4s ease;\n}\n\n.loginBox > button:hover {\n  background-color: transparent;\n}\n\n.loginBox > p > span {\n  font-family: \"Dancing Script\", cursive;\n  /* font-family: 'Inspiration', cursive; */\n  font-weight: bold;\n  font-size: 30px;\n}\n\n/* ============================== ABOUT PAGE =================================== */\n.container {\n  height: 100%;\n  width: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.about {\n  width: 1350px;\n  height: 700px;\n  background-color: #dde1e7;\n  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: space-evenly;\n}\n\n.welcome,\n.details {\n  height: 200px;\n  width: 100%;\n  /* margin-top: 4px; */\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n}\n\n.welcome > h2 {\n  font-family: poppins;\n  font-weight: 400;\n  font-size: 30px;\n}\n\n.welcome > h2 > span {\n  font-family: \"Dancing Script\", cursive;\n  letter-spacing: 5px;\n  font-weight: 800;\n}\n\n.welcomeText {\n  font-family: poppins;\n  font-weight: 400;\n  font-size: 25px;\n}\n\n.userName {\n  font-family: poppins;\n  font-size: 30px;\n  letter-spacing: 3px;\n  font-weight: 600;\n}\n\n.nameBox,\n.emailBox,\n.mobileBox {\n  width: 100%;\n  height: 100px;\n  display: flex;\n  align-items: center;\n  justify-content: space-around;\n  font-family: poppins;\n  font-weight: bold;\n}\n\n.nameBox > p {\n  width: 400px;\n}\n\n.emailBox > p {\n  width: 400px;\n}\n\n.mobileBox > p {\n  width: 400px;\n}\n\n.actionBtns {\n  width: 100%;\n  height: 100px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.actionBtns > button {\n  width: 150px;\n  height: 40px;\n  border: 0px solid transparent;\n  border-radius: 5px;\n  color: purple;\n  font-weight: 500;\n  letter-spacing: 3px;\n  text-transform: uppercase;\n  font-size: 18px;\n  /* background-color: purple; */\n  background-color: transparent;\n  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;\n  /* box-shadow: -3px -3px 7px #ffffff73, 3px 3px 5px #6d676773; */\n  transition: all 0.3s ease-in-out;\n}\n\n.actionBtns > button:hover {\n  background-color: purple;\n  color: white;\n  cursor: pointer;\n}\n\n/* =========================== LOADER ANIMATION ====================================== */\nbody {\n  margin: 0;\n  height: 100vh;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  /* background: linear-gradient(to right, silver, teal); */\n  background: var(--gradient);\n}\n\n.loader {\n  width: 16em;\n  height: 8em;\n  position: relative;\n  overflow: hidden;\n}\n\n.loader::before,\n.loader::after {\n  content: \"\";\n  position: absolute;\n  bottom: 0;\n}\n\n.loader::before {\n  width: inherit;\n  height: 0.2em;\n  background-color: hsl(0deg, 0%, 85%);\n}\n\n.loader::after {\n  box-sizing: border-box;\n  width: 50%;\n  height: inherit;\n  border: 0.2em solid hsl(0deg, 0%, 85%);\n  border-radius: 50%;\n  left: 25%;\n}\n\n.loader span {\n  position: absolute;\n  width: 5%;\n  height: 10%;\n  background-color: white;\n  border-radius: 50%;\n  bottom: 0.2em;\n  left: -5%;\n  animation: 2s linear infinite;\n  transform-origin: 50% -3em;\n  animation-name: run, rotating;\n}\n\n.loader span:nth-child(2) {\n  animation-delay: 0.075s;\n}\n\n.loader span:nth-child(3) {\n  animation-delay: 0.15s;\n}\n\n@keyframes run {\n  0% {\n    left: -5%;\n  }\n  10%, 60% {\n    left: 47.5%;\n  }\n  70%, 100% {\n    left: 100%;\n  }\n}\n@keyframes rotating {\n  0%, 10% {\n    transform: rotate(0deg);\n  }\n  60%, 100% {\n    transform: rotate(-1turn);\n  }\n}", "",{"version":3,"sources":["webpack://./css/styles.css"],"names":[],"mappings":"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","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Arvo&family=Dancing+Script:wght@700&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Arvo&family=Dancing+Script:wght@700&family=Poppins:wght@300&display=swap');\n\n:root {\n  --gradient: linear-gradient(130deg, #ee6352, purple, #ee6352);\n}\n\nbody {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n\n  height: 100vh;\n  background-repeat: no-repeat;\n\n  background-image: var(--gradient);\n  background-size: 400%;\n  animation: bg-animation 14s infinite;\n}\n\n.hidden {\n  display: none;\n}\n\n@keyframes bg-animation {\n  0% {\n    background-position: left;\n  }\n  50% {\n    background-position: right;\n  }\n  100% {\n    background-position: left;\n  }\n}\n\n.main {\n  height: 100%;\n  display: flex;\n\n  /* display: none; */\n}\n\n.left,\n.right {\n  width: 50%;\n  height: 100%;\n  /* background-color: red; */\n}\n\n.left {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n}\n\nh1,\nh2 {\n  line-height: 90px;\n}\n\n.tagline h2 {\n  margin: 0;\n\n  font-family: 'Poppins';\n  font-weight: bold;\n  font-size: 95px;\n  color: #fff;\n}\n\n.intro {\n  margin-top: -200px;\n}\n.auth h1 {\n  margin: 0;\n\n  font-family: 'Poppins';\n  font-weight: bold;\n  font-size: 95px;\n  color: #fff;\n}\n\n.auth h1 > span {\n  margin-left: -215px;\n  letter-spacing: 42px;\n}\n\n.message p {\n  margin-left: -37px;\n\n  font-family: 'Poppins';\n  font-weight: medium;\n  font-size: 21px;\n  color: #fff;\n}\n\n.message span {\n  font-family: 'Dancing Script', cursive;\n  /* font-family: 'Inspiration', cursive; */\n  font-weight: bold;\n  font-size: 55px;\n}\n\n.right {\n  width: 50%;\n  height: 100%;\n  /* background-color: red; */\n\n  display: flex;\n  /* flex-direction: column; */\n  align-items: center;\n  justify-content: center;\n}\n\n.wrapper {\n  height: 100%;\n  display: flex;\n  justify-self: center;\n  align-items: center;\n\n  mask-image: linear-gradient(\n    -75deg,\n    rgba(0, 0, 0, 0.6) 30%,\n    #000 50%,\n    rgba(0, 0, 0, 0.6) 70%\n  );\n  -webkit-mask-image: linear-gradient(\n    -75deg,\n    rgba(0, 0, 0, 0.6) 30%,\n    #000 50%,\n    rgba(0, 0, 0, 0.6) 70%\n  );\n  -webkit-mask-size: 200%;\n  mask-size: 200%;\n  animation: shine 3s linear infinite;\n}\n\n.form {\n  height: 700px;\n  width: 602px;\n\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n\n  gap: 10px;\n\n  background: rgba(221, 212, 212, 0.389);\n  border-radius: 16px;\n  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);\n  backdrop-filter: blur(2.7px);\n  -webkit-backdrop-filter: blur(2.7px);\n  border: 1px solid rgba(200, 188, 188, 0.3);\n}\n\n.form > input[type='text'] {\n  padding: 10px 15px;\n  margin: 5px 0;\n  box-sizing: border-box;\n}\n\n.form > input[type='text']:focus {\n  /* outline-color: #ee6352; */\n  outline-color: hsla(7, 82%, 63%, 0.75);\n  /* outline: none; */\n}\n\n.names {\n  width: 86%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n\n  gap: 10px;\n}\n.names > .first,\n.last {\n  /* height: 100px;\n  width: 500px; */\n  /* width: 50%; */\n  color: white;\n  font-weight: medium;\n  font-size: 22px;\n  font-family: Poppins;\n}\n\ninput {\n  border: none;\n}\n.names input[type='text'] {\n  width: 250px;\n  height: 45px;\n  border-radius: 5px;\n}\n\n.passwords {\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n\n  gap: 5px;\n}\n\n.password1,\n.password2 {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  justify-content: flex-start;\n}\n\n.passwords > .password1,\n.password2 {\n  color: white;\n  font-weight: medium;\n  font-size: 22px;\n  font-family: Poppins;\n}\n\n.passwords input[type='text'] {\n  width: 514px;\n  height: 45px;\n  border-radius: 5px;\n}\n\n.ag {\n  width: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n\n  gap: 33px;\n}\n\n.ag > .age,\n.gender {\n  color: white;\n  font-weight: medium;\n  font-size: 22px;\n  font-family: Poppins;\n}\n\n.age {\n  display: flex;\n  flex-direction: column;\n  align-items: start;\n  justify-content: center;\n}\n\n.ag input[type='text'] {\n  width: 240px;\n  height: 45px;\n  border-radius: 5px;\n}\nselect {\n  border: none;\n  background: white;\n}\n#gender {\n  font-family: poppins;\n  font-size: 18px;\n}\nselect > option {\n  font-size: 18px;\n}\n.ag select {\n  width: 240px;\n  height: 45px;\n  border-radius: 5px;\n}\n\ninput[type='text'] {\n  font-size: 25px;\n  font-weight: 300px;\n}\n\n.info {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\n\n.mobile,\n.email {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  justify-content: flex-start;\n}\n\n.info > .mobile,\n.email {\n  color: white;\n  font-weight: medium;\n  font-size: 22px;\n  font-family: Poppins;\n}\n\n.info input[type='text'] {\n  width: 514px;\n  height: 45px;\n  border-radius: 5px;\n}\n.submit > button {\n  margin-top: 20px;\n  width: 150px;\n  height: 40px;\n\n  color: #fff;\n  letter-spacing: 2px;\n  border: 1px solid rgba(255, 255, 255, 0.85);\n  border-radius: 5px;\n  font-size: 17px;\n\n  background-color: rgba(255, 255, 255, 0.24);\n\n  transition: background-image 5s ease-in;\n}\n\n.submit > button:hover {\n  cursor: pointer;\n  background-image: var(--gradient);\n  background-size: 200%;\n  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,\n    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;\n}\n\n@keyframes shine {\n  from {\n    -webkit-mask-position: 150%;\n  }\n  to {\n    -webkit-mask-position: -50%;\n  }\n}\n\n.home {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n\n  height: 100vh;\n}\n\n.home {\n  font-family: Poppins;\n  font-weight: bold;\n  font-size: 65px;\n  letter-spacing: 8px;\n  color: #fff;\n}\n.tagline > p > span {\n  font-family: 'Dancing Script', cursive;\n  font-size: 100px;\n}\n\n.tagline > p {\n  margin: 0;\n}\n\n.bttns {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 30px;\n}\n\n.sign {\n  width: 155px;\n  height: 45px;\n\n  font-size: 20px;\n  /* color: white; */\n  font-weight: bold;\n\n  outline: none;\n  border: none;\n  border-radius: 5px;\n  letter-spacing: 1.5px;\n\n  transition: box-shadow 0.6s ease, background 0.6s ease;\n  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,\n    rgba(0, 0, 0, 0.22) 0px 10px 10px;\n}\n\n.bttns > button:hover {\n  cursor: pointer;\n  background: transparent;\n  color: white;\n  border: 1.95px solid white;\n}\n\n.fadeinTop {\n  animation: fadeinTop 1s ease-in-out;\n}\n.fadeinLeft {\n  animation: fadeinLeft 1s ease-in-out;\n}\n.fadeinRight {\n  animation: fadeinRight 1s ease-in-out;\n}\n\n@keyframes fadeinTop {\n  0% {\n    opacity: 0;\n    transform: translateY(-50px);\n  }\n  50% {\n    opacity: 0.5;\n  }\n  100% {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n@keyframes fadeinLeft {\n  0% {\n    opacity: 0;\n    transform: translateX(-50px);\n  }\n  50% {\n    opacity: 0.5;\n  }\n  100% {\n    opacity: 1;\n    transform: translateX(0);\n  }\n}\n\n@keyframes fadeinRight {\n  0% {\n    opacity: 0;\n    transform: translateX(50px);\n  }\n  50% {\n    opacity: 0.5;\n  }\n  100% {\n    opacity: 1;\n    transform: translateX(0);\n  }\n}\n\n#alertBox {\n  height: 100%;\n  width: 100%;\n\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.alertMsg {\n  width: 615px;\n  height: 270px;\n  background-color: #fff;\n\n  display: flex;\n  justify-content: center;\n  align-items: center;\n\n  border-radius: 5px;\n  border-color: purple;\n}\n\n.alertMsg > p {\n  font-family: poppins;\n  font-weight: bold;\n  padding: 10px;\n}\n\n.login {\n  height: 100%;\n  width: 100%;\n\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.loginBox {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n\n  gap: 15px;\n}\n\n.loginBox > p {\n  margin: 0;\n  /* margin-left: 100px; */\n\n  font-size: 20px;\n  color: white;\n  font-weight: bold;\n  letter-spacing: 1.5px;\n  font-family: poppins;\n}\n\n.inp-boxes {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n\n  gap: 10px;\n}\n\n.logEmail,\n.pass {\n  border-radius: 4px;\n}\n\n.inp-boxes > input[type='text'] {\n  padding: 10px 15px;\n  margin: 4px 0;\n  box-sizing: border-box;\n\n  background-color: #fff;\n  /* background: rgba(255, 255, 255, 0.2);\n  border-radius: 4px;\n  backdrop-filter: blur(4px);\n  border: 1px solid rgba(255, 255, 255, 0.3);\n  color: white; */\n\n  outline: none;\n}\n\n.loginBox > button {\n  all: unset;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n\n  background-color: transparent;\n  font-size: 18px;\n  font-family: poppins;\n  letter-spacing: 2px;\n  font-weight: bold;\n  color: white;\n\n  width: 120px;\n  height: 35px;\n  /* border: 1px solid white; */\n  border-radius: 4px;\n\n  cursor: pointer;\n  border: none;\n  background: rgba(255, 255, 255, 0.2);\n  border-radius: 4px;\n  backdrop-filter: blur(4px);\n  border: 1px solid rgba(255, 255, 255, 0.3);\n\n  transition: background-color 0.4s ease;\n}\n\n.loginBox > button:hover {\n  background-color: transparent;\n}\n.loginBox > p > span {\n  font-family: 'Dancing Script', cursive;\n  /* font-family: 'Inspiration', cursive; */\n  font-weight: bold;\n  font-size: 30px;\n}\n\n/* ============================== ABOUT PAGE =================================== */\n\n.container {\n  height: 100%;\n  width: 100%;\n\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.about {\n  width: 1350px;\n  height: 700px;\n\n  background-color: #dde1e7;\n\n  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;\n\n  display: flex;\n\n  flex-direction: column;\n  align-items: center;\n  justify-content: space-evenly;\n}\n\n.welcome,\n.details {\n  height: 200px;\n  width: 100%;\n\n  /* margin-top: 4px; */\n\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n}\n\n.welcome > h2 {\n  font-family: poppins;\n  font-weight: 400;\n  font-size: 30px;\n}\n\n.welcome > h2 > span {\n  font-family: 'Dancing Script', cursive;\n  letter-spacing: 5px;\n  font-weight: 800;\n}\n\n.welcomeText {\n  font-family: poppins;\n  font-weight: 400;\n  font-size: 25px;\n}\n\n.userName {\n  font-family: poppins;\n  font-size: 30px;\n  letter-spacing: 3px;\n  font-weight: 600;\n}\n\n.nameBox,\n.emailBox,\n.mobileBox {\n  width: 100%;\n  height: 100px;\n\n  display: flex;\n  align-items: center;\n  justify-content: space-around;\n\n  font-family: poppins;\n  font-weight: bold;\n}\n\n.nameBox > p {\n  width: 400px;\n}\n.emailBox > p {\n  width: 400px;\n}\n.mobileBox > p {\n  width: 400px;\n}\n\n.actionBtns {\n  width: 100%;\n  height: 100px;\n\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.actionBtns > button {\n  width: 150px;\n  height: 40px;\n\n  border: 0px solid transparent;\n  border-radius: 5px;\n\n  color: purple;\n  font-weight: 500;\n  letter-spacing: 3px;\n  text-transform: uppercase;\n  font-size: 18px;\n  /* background-color: purple; */\n  background-color: transparent;\n\n  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;\n  /* box-shadow: -3px -3px 7px #ffffff73, 3px 3px 5px #6d676773; */\n\n  transition: all 0.3s ease-in-out;\n}\n\n.actionBtns > button:hover {\n  background-color: purple;\n  color: white;\n  cursor: pointer;\n}\n\n/* =========================== LOADER ANIMATION ====================================== */\n\nbody {\n  margin: 0;\n  height: 100vh;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  /* background: linear-gradient(to right, silver, teal); */\n  background: var(--gradient);\n}\n\n.loader {\n  width: 16em;\n  height: 8em;\n  position: relative;\n  overflow: hidden;\n}\n\n.loader::before,\n.loader::after {\n  content: '';\n  position: absolute;\n  bottom: 0;\n}\n\n.loader::before {\n  width: inherit;\n  height: 0.2em;\n  background-color: hsla(0, 0%, 85%);\n}\n\n.loader::after {\n  box-sizing: border-box;\n  width: 50%;\n  height: inherit;\n  border: 0.2em solid hsla(0, 0%, 85%);\n  border-radius: 50%;\n  left: 25%;\n}\n\n.loader span {\n  position: absolute;\n  width: 5%;\n  height: 10%;\n  background-color: white;\n  border-radius: 50%;\n  bottom: 0.2em;\n  left: -5%;\n  animation: 2s linear infinite;\n  transform-origin: 50% -3em;\n  animation-name: run, rotating;\n}\n\n.loader span:nth-child(2) {\n  animation-delay: 0.075s;\n}\n.loader span:nth-child(3) {\n  animation-delay: 0.15s;\n}\n\n@keyframes run {\n  0% {\n    left: -5%;\n  }\n  10%,\n  60% {\n    left: calc((100% - 5%) / 2);\n  }\n  70%,\n  100% {\n    left: 100%;\n  }\n}\n\n@keyframes rotating {\n  0%,\n  10% {\n    transform: rotate(0deg);\n  }\n  60%,\n  100% {\n    transform: rotate(-1turn);\n  }\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -28613,10 +28635,10 @@ try {
 
 /***/ }),
 
-/***/ "./src/css/styles.css":
-/*!****************************!*\
-  !*** ./src/css/styles.css ***!
-  \****************************/
+/***/ "./css/styles.css":
+/*!************************!*\
+  !*** ./css/styles.css ***!
+  \************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -28624,19 +28646,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
 /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
 /* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
 /* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
 /* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
 /* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
 /* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_styles_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../node_modules/css-loader/dist/cjs.js!../../node_modules/sass-loader/dist/cjs.js!./styles.css */ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/css/styles.css");
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_styles_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../node_modules/css-loader/dist/cjs.js!../node_modules/sass-loader/dist/cjs.js!./styles.css */ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./css/styles.css");
 
       
       
@@ -28980,10 +29002,10 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
-/***/ "./src/resources/pencil.png":
-/*!**********************************!*\
-  !*** ./src/resources/pencil.png ***!
-  \**********************************/
+/***/ "./resources/pencil.png":
+/*!******************************!*\
+  !*** ./resources/pencil.png ***!
+  \******************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -29100,23 +29122,23 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
 "use strict";
-/*!******************************!*\
-  !*** ./src/js/controller.js ***!
-  \******************************/
+/*!**************************!*\
+  !*** ./js/controller.js ***!
+  \**************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js */ "./node_modules/core-js/index.js");
 /* harmony import */ var core_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! regenerator-runtime/runtime */ "./node_modules/regenerator-runtime/runtime.js");
 /* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _css_styles_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../css/styles.css */ "./src/css/styles.css");
-/* harmony import */ var _views_formView__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./views/formView */ "./src/js/views/formView.js");
-/* harmony import */ var _views_loginView__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./views/loginView */ "./src/js/views/loginView.js");
+/* harmony import */ var _css_styles_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../css/styles.css */ "./css/styles.css");
+/* harmony import */ var _views_formView__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./views/formView */ "./js/views/formView.js");
+/* harmony import */ var _views_loginView__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./views/loginView */ "./js/views/loginView.js");
 
 
 
 
+ // console.log('controllers');
 
-console.log('controllers');
 var signUpBtn = document.getElementById('signupBtn');
 signUpBtn.addEventListener('click', _views_formView__WEBPACK_IMPORTED_MODULE_3__.renderFormView);
 var signinBtn = document.getElementById('signinBtn');
@@ -29127,4 +29149,4 @@ if (false) {}
 
 /******/ })()
 ;
-//# sourceMappingURL=bundlebfa5811ca6b29b715911.js.map
+//# sourceMappingURL=bundled41d84eca81590b9f842.js.map
