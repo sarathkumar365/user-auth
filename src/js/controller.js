@@ -1,7 +1,7 @@
 import 'core-js';
 import 'regenerator-runtime/runtime';
 
-import '../css/styles.css';
+// import '../css/styles.css';
 import * as formView from './views/formView';
 import * as loginView from './views/loginView';
 
