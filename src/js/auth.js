@@ -43,7 +43,7 @@ export async function sendData() {
 }
 
 export const login = async () => {
-  console.log('login!!!');
+  // console.log('login!!!');
 
   const email = document.getElementById('logEmail').value;
   const password = document.getElementById('pass').value;
@@ -79,16 +79,15 @@ export const getUser = async () => {
     // console.log(user);
     return { user, status: true };
   } catch (err) {
-    console.log('ERROR in login 🔴');
+    // console.log('ERROR in login 🔴');
     // console.log(err.response.data.message);
   }
 };
 
 export const logout = async () => {
   const res = await axios.get(`${url}/logout`);
-  console.log('api logout');
 
-  if (res.status === 200) {
+  if (res.status === 204) {
     location.reload();
   }
 };
