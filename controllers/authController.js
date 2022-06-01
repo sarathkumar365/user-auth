@@ -140,7 +140,7 @@ exports.deleteUser = catchAsync(async (req, res, next) => {
 });
 
 exports.login = catchAsync(async (req, res, next) => {
-  console.log('api call');
+  // console.log('api call');
   // 1. GET USER DATA
   console.log(req.body);
   const userEmail = req.body.email;
@@ -183,6 +183,7 @@ exports.login = catchAsync(async (req, res, next) => {
 });
 
 exports.logout = catchAsync(async (req, res, next) => {
+  console.log('logout back');
   const cookieOptions = {
     httpOnly: true,
     maxAge: 2000,
