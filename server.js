@@ -17,7 +17,7 @@ const port = process.env.PORT || 3000;
 
 mongoose
   .connect(
-    `mongodb+srv://sarathkumar:alchemist%401@user-auth.8xlpxlq.mongodb.net/?retryWrites=true&w=majority`
+    `mongodb+srv://sarathkumar:${process.env.ATLAS_PASS}@user-auth.8xlpxlq.mongodb.net/?retryWrites=true&w=majority`
   )
   .then(() => {
     // eslint-disable-next-line no-console
