@@ -2,8 +2,7 @@ import axios from 'axios';
 import { async } from 'regenerator-runtime';
 axios.defaults.withCredentials = true;
 
-const url = 'http://127.0.0.1:5555/auth/';
-const url2 = 'http://localhost:5555/auth/';
+const url = 'https://vast-headland-00795.herokuapp.com//auth/';
 
 export async function sendData() {
   // console.log('data SENT!!!');
@@ -58,7 +57,7 @@ export const login = async () => {
 
   try {
     // const res = await axios.post('http://127.0.0.1:5555/auth/login', data);
-    const res = await axios.post(`${url2}/login`, data);
+    const res = await axios.post(`${url}/login`, data);
 
     // console.log(res);
     const msg = `Login sucessful 🍷 `;
@@ -75,7 +74,7 @@ export const getUser = async () => {
   console.log('user getting ....');
   try {
     // const res = await axios.post('http://127.0.0.1:5555/auth/login', data);
-    const res = await axios.get(`${url2}/user`);
+    const res = await axios.get(`${url}/user`);
     const user = res.data.data;
     // console.log(user);
     return { user, status: true };
@@ -86,7 +85,7 @@ export const getUser = async () => {
 };
 
 export const logout = async () => {
-  const res = await axios.get(`${url2}/logout`);
+  const res = await axios.get(`${url}/logout`);
   // console.log(res);
 
   if (res.status === 200) {
